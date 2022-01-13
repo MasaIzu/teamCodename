@@ -5,7 +5,7 @@
 #include"Easing.h"
 
 // ウィンドウのタイトルに表示する文字列
-const char TITLE[] = "LC1B_22_ニシザワユウガ: タイトル";
+const char TITLE[] = "LC1B_22_ニシザワユウガ: タイトルunnnnch";
 
 // ウィンドウ横幅
 const int WIN_WIDTH = 896;
