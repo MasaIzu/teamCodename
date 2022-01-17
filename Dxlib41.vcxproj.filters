@@ -18,7 +18,7 @@
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="sabu.cpp">
+    <ClCompile Include="key.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="MapPlayer.cpp">
@@ -27,7 +27,7 @@
     <ClCompile Include="easing.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="MiniMain.cpp">
+    <ClCompile Include="Scene.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
