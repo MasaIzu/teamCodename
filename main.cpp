@@ -43,7 +43,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	
 
 	// ゲームループで使う変数の宣言
-
 	Player* player = new Player(230, 230, 5, 64);
 	Map* MAP = new Map;
 	Scene* SCENE = new Scene;

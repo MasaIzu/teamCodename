@@ -31,7 +31,7 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[][14],int mpx,int mpy, i
 void Scene::PushDraw(int map[][14]) {
 	// •`‰æˆ—
 	if (scene == 1) {
-		player->Draw(map);
+		player->Draw(map,block,goal);
 		easing->EasingDraw();
 	}
 }

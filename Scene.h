@@ -3,6 +3,8 @@
 class Scene
 {
 public:
+	int block = LoadGraph("test.png");
+	int goal = LoadGraph("goal.png");
 
 	int scene = 0;
 

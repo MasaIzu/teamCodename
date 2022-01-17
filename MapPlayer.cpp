@@ -256,7 +256,7 @@ void Player::Move(char* keys, char* oldkeys, int map[][14]) {
 	}
 }
 
-void Player::Draw(int map[][14]) {
+void Player::Draw(int map[][14],int block,int goal) {
 	for (int y = 0; y < MAP.mapCountY; y++) {
 		for (int x = 0; x < MAP.mapCountX; x++) {
 			if (map[y][x] == MAP.BLOCK) {
@@ -278,5 +278,27 @@ Player::Player(int px, int py, int r, int speed) {
 	y = py;
 	this->r = r;
 	this->speed = speed;
+
+	//Œx‚ªŸT“©‚µ‚¢‚Ì‚Å‘ÎÛ•Ï”‘S•”‰Šú‰»
+	rightTopX = 0;
+	rightTopY = 0;;
+	rightBottomX = 0;
+	rightBottomY = 0;
+	leftTopX = 0;
+	leftTopY = 0;
+	leftBottomX = 0;
+	leftBottomY = 0;
+	rightTopOldX = 0;
+	rightTopOldY = 0;
+	rightBottomOldX = 0;
+	rightBottomOldY = 0;
+	leftTopOldX = 0;
+	leftTopOldY = 0;
+	leftBottomOldX = 0;
+	leftBottomOldY = 0;
+	playerPosOldX = 0;
+	playerPosOldY = 0;
+	this->isPlayerStop = 0;
+	isHitKey = 0;
 }
 
