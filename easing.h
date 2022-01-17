@@ -1,7 +1,7 @@
 #pragma once
 #include<math.h>
 #include "DxLib.h"
-
+#include"Scene.h"
 
 class Easing
 {
@@ -22,7 +22,7 @@ public:
 
 	//ƒƒ“ƒo•Ï”
 
-	int scene = 0;
+	int isEscape = 0;
 
 	int flag[100];
 	int randx[100];
@@ -70,4 +70,5 @@ public:
 
 	double easeInOutCubic(double x);
 	
+
 };

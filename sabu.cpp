@@ -1,8 +1,5 @@
 ﻿#include <DxLib.h>
 #include "key.h"
-#include "Player.h"
-
-Player* player = new Player(230, 230, 5, 64, 0);
 
 
 void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
