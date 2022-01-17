@@ -1,7 +1,7 @@
 #pragma once
 
 class Scene
-{
+{//for•ª‚Å‰ñ‚¹‚ÎƒL[‚Ì•Û‘¶‚¢‚¯‚é
 public:
 	int block = LoadGraph("test.png");
 	int goal = LoadGraph("goal.png");

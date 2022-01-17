@@ -24,27 +24,38 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[][14],int mpx,int mpy, i
 		key->Inputkey(keys, oldkeys, map, PTX, PTY);
 		easing->EasingMove(mpx, mpy);
 		easing->EasingLong(keys, oldkeys);
-		if (player->isGoal == 1) {
-			scene = 2;
+		if (player->isKeyAlive == 0) {
+			if (player->isGoal == 1) {
+				scene = 2;
+			}
 		}
 	}
 	else if (scene == 2) {
 		if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
 			scene = 0;
 			player->x = 550; player->y =103;
-			player->isGoal = 0;
+			player->isGoal = 0; player->isKeyAlive = 1;
+			if (map[key->mapY][key->mapX] == 2) {
+				map[key->mapY][key->mapX] = 0;
+			}
 		}
 	}
 	else if (scene == 3) {
 		if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
 			scene = 0;
 			player->x = 550; player->y = 103;
-			player->isGoal = 0;
+			player->isGoal = 0; player->isKeyAlive = 1;
+			if (map[key->mapY][key->mapX] == 2) {
+				map[key->mapY][key->mapX] = 0;
+			}
 		}
 	}
 	if (player->isPlayerAlive == 0) {
 		scene = 3;
-		player->isPlayerAlive = 1;
+		player->isPlayerAlive = 1; player->isKeyAlive = 1;
+		if (map[key->mapY][key->mapX] == 2) {
+			map[key->mapY][key->mapX] = 0;
+		}
 	}
 }
 

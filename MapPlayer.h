@@ -26,7 +26,7 @@ public:
 
 	int isPlayerStop; int isHitKey;
 
-	int isGoal; int isPlayerAlive;
+	int isGoal; int isPlayerAlive; int isKeyAlive;
 
 	
 public:
