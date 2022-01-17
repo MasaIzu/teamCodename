@@ -6,8 +6,6 @@
 class Player
 {
 public:
-	// 画像などのリソースデータの変数宣言と読み込み
-	
 
 	//メンバ変数
 	int x;
@@ -24,17 +22,19 @@ public:
 	int rightBottomOldX, rightBottomOldY;
 	int leftTopOldX, leftTopOldY;
 	int leftBottomOldX, leftBottomOldY;
-
-	int playerPosOldX;int playerPosOldY;
+	int playerPosOldX; int playerPosOldY;
 
 	int isPlayerStop; int isHitKey;
 
+	int isGoal; int isPlayerAlive;
+
+	
 public:
 	Map MAP;
-
+	Scene SCENE;
 	//関数制作
-	void Move(char* keys,char*oldkeys, int map[][14]);
-	void Draw(int map[][14], int block, int goal);
+	void Move(char* keys, char* oldkeys, int map[][14]);
+	void Draw(int map[][14], int block, int goal, int needle,int key);
 
 	Player(int x, int y, int r, int speed);
 

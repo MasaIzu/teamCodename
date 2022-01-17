@@ -233,3 +233,16 @@ void Easing::EasingDraw() {
 	}
 	
 }
+
+Easing::Easing() {
+	// 画像などのリソースデータの変数宣言と読み込み
+	nextGh = LoadGraph("push_space.png", true);
+	MenuGh = LoadGraph("Menu.png", true);
+	GamePlayGh = LoadGraph("GamePlay.png", true);
+	GraphicGh = LoadGraph("Graphic.png", true);
+	SettingGh = LoadGraph("Setting.png", true);
+	SoundGh = LoadGraph("Sound.png", true);
+	EscGh = LoadGraph("Esc.png", true);
+	BackGh = LoadGraph("Back.png", true);
+	Back2Gh = LoadGraph("Back2.png", true);
+}
