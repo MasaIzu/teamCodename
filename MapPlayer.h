@@ -1,12 +1,13 @@
 #pragma once
 #include "DxLib.h"
-
+#include"Scene.h"
+#include"Map.h"
 
 class Player
 {
 public:
 	// 画像などのリソースデータの変数宣言と読み込み
-	int block = LoadGraph("test.png");
+	
 
 	//メンバ変数
 	int x;
@@ -24,14 +25,17 @@ public:
 	int leftTopOldX, leftTopOldY;
 	int leftBottomOldX, leftBottomOldY;
 
-	int playerPosOldX;
-	int playerPosOldY;
+	int playerPosOldX;int playerPosOldY;
 
 	int isPlayerStop; int isHitKey;
 
+public:
+	Map MAP;
+
 	//関数制作
 	void Move(char* keys,char*oldkeys, int map[][14]);
-	void Draw();
+	void Draw(int map[][14], int block, int goal);
 
-	Player(int x, int y, int r, int speed,int isPlayerStop);
+	Player(int x, int y, int r, int speed);
+
 };

@@ -1,6 +1,6 @@
 #include "DxLib.h"
 #include "key.h"
-#include"Player.h"
+#include"MapPlayer.h"
 #include "Map.h"
 #include"Easing.h"
 
@@ -43,11 +43,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	
 
 	// ゲームループで使う変数の宣言
-
-	Key* key = new Key;
-	Player* player = new Player(230, 230, 5, 64, 0);
+	Player* player = new Player(230, 230, 5, 64);
 	Map* MAP = new Map;
-	Easing* easing = new Easing;
+	Scene* SCENE = new Scene;
 
 	int x, y;
 	// 最新のキーボード情報用
@@ -71,29 +69,14 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		//---------  ここからプログラムを記述  ----------//
 
 		// 更新処理
+		
+		//包含の処理ができていません
+		SCENE->PushMove(keys, oldkeys, MAP->map, x, y, player->leftTopX, player->leftTopY);
 
-		player->Move(keys, oldkeys,MAP->map);
-		key->Inputkey(keys, oldkeys, MAP->map, player->leftTopX, player->leftTopY);
-		easing->EasingMove(x, y);
-		easing->EasingLong(keys,oldkeys);
 		
 		// 描画処理
-		for (int y = 0; y < MAP->mapCountY; y++) {
-			for (int x = 0; x < MAP->mapCountX; x++) {
-				if (MAP->map[y][x] == MAP->BLOCK) {
-					DrawGraph(x * MAP->blockSize, y * MAP->blockSize, player->block, true);
-				}
-				if (MAP->map[y][x] == MAP->ONOFFBLOCK) {
-					DrawGraph(x * MAP->blockSize, y * MAP->blockSize, player->block, true);
-				}
-			}
-		}
+		SCENE->PushDraw(MAP->map);
 
-		player->Draw();//関数の呼び出し
-		easing->EasingDraw();
-
-		DrawFormatString(200, 180, GetColor(255, 255, 255), "%d", easing->isSelect);
-		
 
 		//---------  ここまでにプログラムを記述  ---------//
 		// (ダブルバッファ)裏面

@@ -89,9 +89,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -129,14 +131,16 @@
   <ItemGroup>
     <ClCompile Include="easing.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="sabu.cpp" />
+    <ClCompile Include="MapPlayer.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="key.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="easing.h" />
     <ClInclude Include="key.h" />
     <ClInclude Include="Map.h" />
-    <ClInclude Include="Player.h" />
+    <ClInclude Include="MapPlayer.h" />
+    <ClInclude Include="Scene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

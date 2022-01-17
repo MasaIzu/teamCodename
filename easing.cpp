@@ -10,7 +10,7 @@ void Easing::EasingMove(int px, int py) {
 	//イージングの動き制御
 
 	//	メニュー画面
-	if (scene == 1) {
+	if (isEscape == 1) {
 		maxTime = 30; maxTime2 = 50; maxTime3 = 60; maxTime4 = 70; maxTime5 = 80;
 		y1 = 20; y2 = 80; y3 = 120; y4 = 160; y5 = 200; y6 = 330;
 		if (isSelect == 1) {
@@ -131,9 +131,9 @@ void Easing::EasingMove(int px, int py) {
 
 void Easing::EasingLong(char* keys, char* oldkeys) {
 
-	if (scene == 0) {
+	if (isEscape == 0) {
 		if (keys[KEY_INPUT_ESCAPE] == 1 && oldkeys[KEY_INPUT_ESCAPE] == 0) {
-			scene = 1;
+			isEscape = 1;
 			time = 0; time2 = 0; time3 = 0; time4 = 0; time5 = 0;
 			x1 = -200; x2 = -200; x3 = -200; x4 = -200; x5 = -200; x6 = -200;
 			pal2 = 255; pal3 = 255; pal4 = 255; pal5 = 255;
@@ -141,7 +141,7 @@ void Easing::EasingLong(char* keys, char* oldkeys) {
 	}
 
 	//メニューで使うキーたち
-	if (scene == 1) {
+	if (isEscape == 1) {
 
 		if (keys[KEY_INPUT_ESCAPE] == 1 && oldkeys[KEY_INPUT_ESCAPE] == 0) {
 			if (isSelect == 0) {
@@ -195,7 +195,7 @@ void Easing::EasingLong(char* keys, char* oldkeys) {
 			if (x5 <= finalX) {
 				startX = -150; time = 0; nextX = -150;
 				finalX = 245; waitTimer = 50; maxTime = 100;
-				scene = 0; isSelect = 0; reFlag = 0;
+				isEscape = 0; isSelect = 0; reFlag = 0;
 			}
 		}
 	}
@@ -203,7 +203,7 @@ void Easing::EasingLong(char* keys, char* oldkeys) {
 
 void Easing::EasingDraw() {
 
-	if (scene == 1) {
+	if (isEscape == 1) {
 		DrawBox(0, 0, x1 + 170, 600, GetColor(100, 100, 100), true);
 		DrawBox(0, 0, x5 + 170, 600, GetColor(100, 100, 100), true);
 		DrawGraph(x1, y1, MenuGh, true);
