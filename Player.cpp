@@ -1,6 +1,7 @@
-#include"MapPlayer.h"
+#include"Player.h"
 #include "DxLib.h"
 #include "key.h"
+
 
 
 void Player::Move(char* keys, char* oldkeys, int map[][14]) {
@@ -529,24 +530,24 @@ void Player::Move(char* keys, char* oldkeys, int map[][14]) {
 
 }
 
-void Player::Draw(int map[][14],int block,int goal,int needle,int key) {
+void Player::Draw(int map[][14]) {
 	for (int y = 0; y < MAP.mapCountY; y++) {
 		for (int x = 0; x < MAP.mapCountX; x++) {
 			if (map[y][x] == MAP.BLOCK) {
-				DrawGraph(x * MAP.blockSize, y * MAP.blockSize, block, true);
+				DrawGraph(x * MAP.blockSize, y * MAP.blockSize, this->block, true);
 			}
 			if (map[y][x] == MAP.ONOFFBLOCK) {
-				DrawGraph(x * MAP.blockSize, y * MAP.blockSize, block, true);
+				DrawGraph(x * MAP.blockSize, y * MAP.blockSize, this->block, true);
 			}
 			if (map[y][x] == MAP.GOAL) {
-				DrawGraph(x * MAP.blockSize, y * MAP.blockSize, goal, true);
+				DrawGraph(x * MAP.blockSize, y * MAP.blockSize, this->goal, true);
 			}
 			if (map[y][x] == MAP.NEEDLE) {
-				DrawGraph(x * MAP.blockSize, y * MAP.blockSize, needle, true);
+				DrawGraph(x * MAP.blockSize, y * MAP.blockSize, this->needle, true);
 			}
 			if (isKeyAlive == 1) {
 				if (map[y][x] == MAP.KEY) {
-					DrawGraph(x * MAP.blockSize, y * MAP.blockSize, key, true);
+					DrawGraph(x * MAP.blockSize, y * MAP.blockSize, this->kagi, true);
 				}
 			}
 		}
@@ -561,28 +562,17 @@ Player::Player(int px, int py, int r, int speed) {
 	this->speed = speed;
 
 	//Œx‚ªŸT“©‚µ‚¢‚Ì‚Å‘ÎÛ•Ï”‘S•”‰Šú‰»
-	rightTopX = 0;
-	rightTopY = 0;;
-	rightBottomX = 0;
-	rightBottomY = 0;
-	leftTopX = 0;
-	leftTopY = 0;
-	leftBottomX = 0;
-	leftBottomY = 0;
-	rightTopOldX = 0;
-	rightTopOldY = 0;
-	rightBottomOldX = 0;
-	rightBottomOldY = 0;
-	leftTopOldX = 0;
-	leftTopOldY = 0;
-	leftBottomOldX = 0;
-	leftBottomOldY = 0;
-	playerPosOldX = 0;
-	playerPosOldY = 0;
+	rightTopX = 0;rightTopY = 0;rightBottomX = 0;rightBottomY = 0;
+	leftTopX = 0;leftTopY = 0;leftBottomX = 0;leftBottomY = 0;
+	rightTopOldX = 0;rightTopOldY = 0;rightBottomOldX = 0;rightBottomOldY = 0;
+	leftTopOldX = 0;leftTopOldY = 0;leftBottomOldX = 0;leftBottomOldY = 0;
+	playerPosOldX = 0;playerPosOldY = 0;
 	this->isPlayerStop = 0;
-	isHitKey = 0;
-	isGoal = 0;
-	isPlayerAlive = 1;
-	isKeyAlive = 1;
+	isHitKey = 0;isGoal = 0;isPlayerAlive = 1;isKeyAlive = 1;
+
+	this->block = LoadGraph("test.png");
+	this->goal = LoadGraph("goal.png");
+	this->needle = LoadGraph("toge_kari.png");
+	this->kagi = LoadGraph("keykari.png");
 }
 

@@ -1,9 +1,9 @@
 #include "DxLib.h"
 #include "key.h"
-#include"MapPlayer.h"
+#include"Player.h"
 #include "Map.h"
 #include"Easing.h"
-
+#include "Enum.h"
 // ウィンドウのタイトルに表示する文字列
 const char TITLE[] = "LC1B_22_ニシザワユウガ: タイトルunnnnch";
 
