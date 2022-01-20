@@ -1,5 +1,6 @@
 #pragma once
 
+
 class Scene
 {//for•ª‚Å‰ñ‚¹‚ÎƒL[‚Ì•Û‘¶‚¢‚¯‚é
 public:
@@ -7,6 +8,7 @@ public:
 	int goal = LoadGraph("goal.png");
 	int needle = LoadGraph("toge_kari.png");
 	int kagi = LoadGraph("keykari.png");
+	int setumei = LoadGraph("setumei.png");
 
 	int scene = 0; 
 

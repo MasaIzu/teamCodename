@@ -10,6 +10,7 @@ public:
 	int mapX = 1;
 	int mapY = 1;
 	bool push = false;
+	int pushCount = 0;
 
 	int Scene;
 

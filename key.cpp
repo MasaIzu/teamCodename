@@ -258,6 +258,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 #pragma endregion
 
 	if (push == true) {
+		pushCount++;
+	}
+
+
+	if (push == true) {
 		if (mapX == PTX && mapY == PTY) {
 			push = false;
 		}
@@ -271,4 +276,6 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 
 	}
+
+	
 	}
