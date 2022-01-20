@@ -12,6 +12,10 @@ Player* player = new Player(550, 103, 5, 64);
 Map* MAP = new Map;
 Easing* easing = new Easing;
 
+Scene::Scene() {
+	LoadDivGraph("check.png", 6, 6, 1, 64, 64, check);
+}
+
 void Scene::PushMove(char* keys, char* oldkeys, int map[][14],int mpx,int mpy, int PTX, int PTY) {
 	if (scene == 0) {
 		if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
