@@ -131,16 +131,20 @@
   <ItemGroup>
     <ClCompile Include="easing.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MapPlayer.cpp" />
+    <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="key.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="easing.h" />
+    <ClInclude Include="Easing.h" />
+    <ClInclude Include="Enum.h" />
+    <ClInclude Include="Global.h" />
     <ClInclude Include="key.h" />
     <ClInclude Include="Map.h" />
-    <ClInclude Include="MapPlayer.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="struct.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

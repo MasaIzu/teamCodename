@@ -1,7 +1,5 @@
 #pragma once
 #include "DxLib.h"
-#include"Scene.h"
-#include"Map.h"
 
 class Player
 {
@@ -28,14 +26,11 @@ public:
 
 	int isGoal; int isPlayerAlive; int isKeyAlive;
 
-	
 public:
-	Map MAP;
-	Scene SCENE;
 	//ŠÖ”§ì
 	void Move(char* keys, char* oldkeys, int map[][14]);
-	void Draw(int map[][14], int block, int goal, int needle,int key);
+	void Draw(int map[][14]);
 
-	Player(int x, int y, int r, int speed);
+	Player();
 
 };

@@ -1,16 +1,26 @@
 #pragma once
+#include"Player.h"
+#include"Map.h"
+#include"key.h"
+#include"Easing.h"
 
 class Scene
-{//forï™Ç≈âÒÇπÇŒÉLÅ[ÇÃï€ë∂Ç¢ÇØÇÈ
+{
+private:
+	int scene;
+	
 public:
-	int block = LoadGraph("test.png");
-	int goal = LoadGraph("goal.png");
-	int needle = LoadGraph("toge_kari.png");
-	int kagi = LoadGraph("keykari.png");
-
-	int scene = 0; 
+	Player player;
+	Map MAP;
+	Easing easing;
+	Key key;
 
 	void PushMove(char* keys, char* oldkeys, int map[][14],int mpx,int mpy, int PTX, int PTY);
 	void PushDraw(int map[][14]);
+
+
+	// constructor & destructor
+	Scene();
+	~Scene();
 
 };
