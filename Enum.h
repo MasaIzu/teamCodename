@@ -2,6 +2,7 @@
 
 enum block
 {
+	NONE,
 	BLOCK,
 	ONOFFBLOCK,
 	GOAL,

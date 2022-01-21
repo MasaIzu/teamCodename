@@ -8,12 +8,13 @@ class Scene
 {
 private:
 	int scene;
+	
+public:
 	Player player;
 	Map MAP;
 	Easing easing;
 	Key key;
 
-public:
 	void PushMove(char* keys, char* oldkeys, int map[][14],int mpx,int mpy, int PTX, int PTY);
 	void PushDraw(int map[][14]);
 

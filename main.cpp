@@ -4,14 +4,8 @@
 #include "Map.h"
 #include"Easing.h"
 #include "Enum.h"
-// ウィンドウのタイトルに表示する文字列
-const char TITLE[] = "LC1B_22_ニシザワユウガ: タイトルunnnnch";
-
-// ウィンドウ横幅
-const int WIN_WIDTH = 896;
-
-// ウィンドウ縦幅
-const int WIN_HEIGHT = 384;
+#include"Global.h"
+#include"Scene.h"
 
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine,
 	_In_ int nCmdShow) {
@@ -43,8 +37,18 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	
 
 	// ゲームループで使う変数の宣言
-	Player* player = new Player(550, 80, 5, 64);
-	Map* MAP = new Map;
+	Player* player = new Player();
+
+	int mapInit[6][14] = {
+	{ 1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+	{ 1,0,0,0,0,0,4,4,0,0,0,0,0,1 },
+	{ 1,5,0,0,0,0,0,0,0,0,0,0,0,1 },
+	{ 1,0,0,0,1,0,0,3,0,0,0,0,0,1 },
+	{ 1,0,1,0,0,0,0,1,4,0,0,0,0,1 },
+	{ 1,1,1,1,4,4,4,1,1,1,1,1,1,1 },
+	};
+
+	Map* MAP = new Map(mapInit);
 	Scene* SCENE = new Scene;
 
 	int x, y;
@@ -71,11 +75,11 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		// 更新処理
 		
 		//包含の処理ができていません
-		SCENE->PushMove(keys, oldkeys, MAP->map, x, y, player->leftTopX, player->leftTopY);
+		SCENE->PushMove(keys, oldkeys, mapInit, x, y, player->leftTopX, player->leftTopY);
 
 		
 		// 描画処理
-		SCENE->PushDraw(MAP->map);
+		SCENE->PushDraw(mapInit);
 
 
 		//---------  ここまでにプログラムを記述  ---------//

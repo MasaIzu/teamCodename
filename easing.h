@@ -1,7 +1,5 @@
 #pragma once
-#include<math.h>
 #include "DxLib.h"
-#include"Scene.h"
 
 class Easing
 {
@@ -45,7 +43,7 @@ public:
 
 	double time; double time2; double time3; double time4; double time5;
 	double maxTime = 100; double maxTime2 = 102; double maxTime3 = 104;
-	double maxTime4 = 106; double maxTime5 = 108; double waitTimer = 50;
+	double maxTime4 = 106; double maxTime5 = 107; double waitTimer = 50;
 	double nextX; double nextX2; double nextX3;
 	double startX = -150; double finalX = 245;
 

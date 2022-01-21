@@ -137,8 +137,9 @@
     <ClCompile Include="key.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="easing.h" />
+    <ClInclude Include="Easing.h" />
     <ClInclude Include="Enum.h" />
+    <ClInclude Include="Global.h" />
     <ClInclude Include="key.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Player.h" />

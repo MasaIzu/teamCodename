@@ -1,8 +1,7 @@
 #include "DxLib.h"
 #include"Scene.h"
 
-//‚±‚±‚Íì‚Á‚½ŠÖ”‚ð‚Ü‚Æ‚ß‚éŠ
-
+//‚±‚±‚Íì‚Á‚½ŠÖ”‚ð‚Ü‚Æ‚ß‚éŠ_‚Â‚¢‚Å‚ÉƒV[ƒ“ŠÇ—
 
 void Scene::PushMove(char* keys, char* oldkeys, int map[][14],int mpx,int mpy, int PTX, int PTY) {
 	if (scene == 0) {
@@ -58,6 +57,7 @@ void Scene::PushDraw(int map[][14]) {
 	}
 	else if (scene == 1) {
 		player.Draw(map);
+		MAP.MapDraw(map);
 		easing.EasingDraw();
 	}
 	else if (scene == 2) {
@@ -70,7 +70,7 @@ void Scene::PushDraw(int map[][14]) {
 	}
 }
 
-Scene::Scene() {
+Scene::Scene():MAP(MAP.map){
+	scene = 0;
+};
 
-	this->scene = 0;
-}
