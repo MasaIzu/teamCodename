@@ -28,5 +28,5 @@ public:
 		KEY,
 	};
 
-
+	void InitMap();
 };
