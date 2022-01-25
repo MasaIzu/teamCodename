@@ -3,7 +3,7 @@
 
 //ここは作った関数をまとめる所_ついでにシーン管理
 
-void Scene::PushMove(char* keys, char* oldkeys, int map[][14],int mpx,int mpy, int PTX, int PTY) {
+void Scene::PushMove(char* keys, char* oldkeys, int map[6][14],int mpx,int mpy, int PTX, int PTY) {
 	if (scene == 0) {
 		if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
 			scene = 1;
@@ -56,7 +56,7 @@ void Scene::PushDraw(int map[][14]) {
 		DrawFormatString(350, 200, GetColor(255, 255, 255),"スタート_スペース");
 	}
 	else if (scene == 1) {
-		player.Draw(map);
+		player.Draw();
 		MAP.MapDraw(map);
 		easing.EasingDraw();
 	}

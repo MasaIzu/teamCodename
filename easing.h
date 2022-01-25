@@ -62,9 +62,11 @@ public:
 	void EasingMove( int px, int py);
 	void EasingLong(char* keys, char* oldkeys);
 	void EasingDraw();
+	//void EasingPlayer(int playerPos);
 
 	double easeInOutCubic(double x);
-	
+	double easeInBack(double x, double back);
+
 	Easing();
 
 };

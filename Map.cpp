@@ -12,8 +12,8 @@ Map::Map(int map[6][14]) {
 
 	MapCount mapCount
 	{
-		sizeof(map[0]) / sizeof(map[0][0]),
-		sizeof(map[0]) / sizeof(map[0])
+		14,
+		6
 	};
 
 	for (int i = 0; i < mapCount.y; i++) {
@@ -33,6 +33,13 @@ void Map::setMap(int map[6][14]) {
 }
 
 void Map::MapDraw(int map[6][14]) {
+
+	MapCount mapCount
+	{
+		14,
+		6
+	};
+
 	for (int y = 0; y < mapCount.y; y++) {
 		for (int x = 0; x < mapCount.x; x++) {
 			if (map[y][x] == BLOCK) {
