@@ -61,10 +61,12 @@ void Scene::PushDraw(int map[][14]) {
 		easing.EasingDraw();
 	}
 	else if (scene == 2) {
+		key.KeyDraw();
 		DrawFormatString(350, 200, GetColor(255, 255, 255), "ゴール！やったね！");
 		DrawFormatString(350, 240, GetColor(255, 255, 255), "戻るにはスペース");
 	}
 	else if (scene == 3) {
+		key.KeyDraw();
 		DrawFormatString(350, 200, GetColor(255, 255, 255), "ゆ～だーい");
 		DrawFormatString(350, 240, GetColor(255, 255, 255), "戻るにはスペース");
 	}
