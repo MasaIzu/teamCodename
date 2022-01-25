@@ -1,32 +1,27 @@
 #pragma once
+#include "struct.h"
+#include"Enum.h"
 
 class Map
 {
 public:
 
-	int map[6][14] = {
-		{1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-		{1,0,0,0,0,0,4,4,0,0,0,0,0,1},
-		{1,5,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,1,0,0,3,0,0,0,0,0,1},
-		{1,0,1,0,0,0,0,1,4,0,0,0,0,1},
-		{1,1,1,1,4,4,4,1,1,1,1,1,1,1},
-	};
+	int block;
+	int goal;
+	int needle;
+	int kagi;
 
-	const int blockSize = 64;
+	int map[6][14];
+	MapCount mapCount;
+	
+public:
+	// accesser
+	int* getMap();
+	void setMap(int map[6][14]);
 
-	int mapCountX = sizeof(map[0]) / sizeof(map[0][0]);
-	int mapCountY = sizeof(map) / sizeof(map[0]);
+	// constructor & distructor
+	Map(int map[6][14]);
 
-	enum MapInfo
-	{
-		NONE,
-		BLOCK,
-		ONOFFBLOCK,
-		GOAL,
-		NEEDLE,
-		KEY,
-	};
-
-
+	//ä÷êî
+	void MapDraw(int map[6][14]);
 };

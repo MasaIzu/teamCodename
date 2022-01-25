@@ -1,5 +1,6 @@
 #include"easing.h"
 #include<math.h>
+#include"Player.h"
 
 double Easing::easeInOutCubic(double x) {
 	return x < 0.5 ? 4 * x * x * x : 1 - pow(-2 * x + 2, 3) / 2;
@@ -11,7 +12,7 @@ void Easing::EasingMove(int px, int py) {
 
 	//	ƒƒjƒ…[‰æ–Ê
 	if (isEscape == 1) {
-		maxTime = 30; maxTime2 = 50; maxTime3 = 60; maxTime4 = 70; maxTime5 = 80;
+		maxTime = 30; maxTime2 = 50; maxTime3 = 60; maxTime4 = 70; maxTime5 = 75;
 		y1 = 20; y2 = 80; y3 = 120; y4 = 160; y5 = 200; y6 = 330;
 		if (isSelect == 1) {
 			if (time <= maxTime) {
@@ -246,3 +247,4 @@ Easing::Easing() {
 	BackGh = LoadGraph("Back.png", true);
 	Back2Gh = LoadGraph("Back2.png", true);
 }
+
