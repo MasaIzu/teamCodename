@@ -8,7 +8,10 @@ class Scene
 {
 private:
 	int scene;
-	
+	Player player;
+	Key key;
+	Easing easing;
+	Map MAP;
 public:
 
 

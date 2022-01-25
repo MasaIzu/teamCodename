@@ -4,7 +4,7 @@
 //‚±‚±‚Íì‚Á‚½ŠÖ”‚ğ‚Ü‚Æ‚ß‚éŠ_‚Â‚¢‚Å‚ÉƒV[ƒ“ŠÇ—
 
 Scene::Scene() {
-	LoadDivGraph("check.png", 6, 6, 1, 64, 64, check);
+
 }
 
 void Scene::PushMove(char* keys, char* oldkeys, int map[][14],int mpx,int mpy, int PTX, int PTY) {

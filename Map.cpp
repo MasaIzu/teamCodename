@@ -9,6 +9,7 @@ Map::Map(int map[6][14]) {
 	this->goal = LoadGraph("goal.png");
 	this->needle = LoadGraph("toge_kari.png");
 	this->kagi = LoadGraph("keykari.png");
+	LoadDivGraph("check.png", 6, 6, 1, 64, 64, this->check);
 
 	MapCount mapCount
 	{
