@@ -51,11 +51,16 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 			Start = x;
 		}
 	}
-	
 
 	//左上の座標取得
 	leftTopX = (x - r) / BLOCK_SIZE;
 	leftTopY = (y - r) / BLOCK_SIZE;
+
+	playerLeftTopX = (playerPosX) / BLOCK_SIZE;
+	playerLeftTopY = (playerPosY) / BLOCK_SIZE;
+
+	oldPlayerLeftTopX = (playerPosOldX) / BLOCK_SIZE;
+	oldPlayerLeftTopY = (playerPosOldY) / BLOCK_SIZE;
 
 	while (isHitKey == 1 || isHitKey == 2 || isHitKey == 3 || isHitKey == 4) {
 
@@ -95,9 +100,6 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 		leftBottomX = (x - r) / BLOCK_SIZE;
 		leftBottomY = (y + r - 1) / BLOCK_SIZE;
 
-		
-		playerLeftTopX = (playerPosX - r) / BLOCK_SIZE;
-		playerLeftTopY = (playerPosY - r) / BLOCK_SIZE;
 
 		//プレイヤーのold
 		//左上の座標取得
@@ -116,8 +118,6 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 		leftBottomOldX = (oldX - r) / BLOCK_SIZE;
 		leftBottomOldY = (oldY + r - 1) / BLOCK_SIZE;
 
-		oldPlayerLeftTopX = (playerPosOldX - r) / BLOCK_SIZE;
-		oldPlayerLeftTopY = (playerPosOldY - r) / BLOCK_SIZE;
 
 		//もし当たっているならもとに戻す
 		if (map[leftTopY][leftTopX] == BLOCK) {
@@ -489,17 +489,17 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 
 			}
 			else if (map[leftTopOldY][leftTopX] == NONE && map[leftTopY][leftTopOldX] == KEY) {//もしもYが当たっているならYを元の位置に戻す
-				isKeyAlive = 0;
+				
 				isHitKey = 0;
 				break;
 			}
 			else if (map[leftTopOldY][leftTopX] == KEY && map[leftTopY][leftTopOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
-				isKeyAlive = 0;
+				
 				isHitKey = 0;
 				break;
 			}
 			else if (map[leftTopOldY][leftTopX] == KEY && map[leftTopY][leftTopOldX] == KEY) {//どっちも当たってるのならば両方を元の位置に戻す
-				isKeyAlive = 0;
+				
 				isHitKey = 0;
 				break;
 			}
@@ -510,17 +510,14 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 
 			}
 			else if (map[rightTopOldY][rightTopX] == NONE && map[rightTopY][rightTopOldX] == KEY) {//もしもYが当たっているならYを元の位置に戻す
-				isKeyAlive = 0;
 				isHitKey = 0;
 				break;
 			}
 			else if (map[rightTopOldY][rightTopX] == KEY && map[rightTopY][rightTopOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
-				isKeyAlive = 0;
 				isHitKey = 0;
 				break;
 			}
 			else if (map[rightTopOldY][rightTopX] == KEY && map[rightTopY][rightTopOldX] == KEY) {//どっちも当たってるのならば両方を元の位置に戻す
-				isKeyAlive = 0;
 				isHitKey = 0;
 				break;
 			}
@@ -531,17 +528,14 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 
 			}
 			else if (map[rightBottomOldY][rightBottomX] == NONE && map[rightBottomY][rightBottomOldX] == KEY) {//もしもYが当たっているならYを元の位置に戻す
-				isKeyAlive = 0;
 				isHitKey = 0;
 				break;
 			}
 			else if (map[rightBottomOldY][rightBottomX] == KEY && map[rightBottomY][rightBottomOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
-				isKeyAlive = 0;
 				isHitKey = 0;
 				break;
 			}
 			else if (map[rightBottomOldY][rightBottomX] == KEY && map[rightBottomY][rightBottomOldX] == KEY) {//どっちも当たってるのならば両方を元の位置に戻す
-				isKeyAlive = 0;
 				isHitKey = 0;
 				break;
 			}
@@ -552,21 +546,23 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 
 			}
 			else if (map[leftBottomOldY][leftBottomX] == NONE && map[leftBottomY][leftBottomOldX] == KEY) {//もしもYが当たっているならYを元の位置に戻す
-				isKeyAlive = 0;
 				isHitKey = 0;
 				break;
 			}
 			else if (map[leftBottomOldY][leftBottomX] == KEY && map[leftBottomY][leftBottomOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
-				isKeyAlive = 0;
 				isHitKey = 0;
 				break;
 			}
 			else if (map[leftBottomOldY][leftBottomX] == KEY && map[leftBottomY][leftBottomOldX] == KEY) {//どっちも当たってるのならば両方を元の位置に戻す
-				isKeyAlive = 0;
 				isHitKey = 0;
 				break;
 			}
 		}
+	}
+
+	//もし当たっているならKEYを消す
+	if (map[playerLeftTopY][playerLeftTopX] == KEY) {
+		map[playerLeftTopY][playerLeftTopX] = NONE;
 	}
 
 	if (isPush == 1) {
@@ -593,5 +589,8 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 
 void Player::Draw() {
 	DrawCircle(this->playerPosX - r, this->playerPosY - r, r, GetColor(255, 255, 255), true);
+
+	DrawFormatString(300, 500, GetColor(255, 255, 255), "%d", playerLeftTopX);
+	DrawFormatString(300, 520, GetColor(255, 255, 255), "%d", playerLeftTopY);
 }
 
