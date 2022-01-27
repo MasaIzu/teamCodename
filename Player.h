@@ -30,7 +30,7 @@ public:
 	int playerPosX, playerPosY, playerPosOldX, playerPosOldY; int isPush;
 	int playerLeftTopX, playerLeftTopY, oldPlayerLeftTopX, oldPlayerLeftTopY;
 	
-	int keyCount;
+	int keyCount; int onaCount; int playerCount; int trapCount;
 private:
 	Easing* easing;
 	Map MAP;

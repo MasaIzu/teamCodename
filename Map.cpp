@@ -9,6 +9,7 @@ Map::Map(int map[6][14]) {
 	this->goal = LoadGraph("goal.png");
 	this->needle = LoadGraph("toge_kari.png");
 	this->kagi = LoadGraph("keykari.png");
+	this->trap = LoadGraph("needle1.png");
 
 	mapCount = { 14,6 };
 	
@@ -46,6 +47,11 @@ void Map::MapDraw(int map[6][14]) {
 			}
 			if (map[y][x] == KEY) {
 				DrawGraph(x * BLOCK_SIZE, y * BLOCK_SIZE, this->kagi, true);
+			}
+			if (map[y][x] == TRAP) {
+
+				DrawGraph(x * BLOCK_SIZE, y * BLOCK_SIZE, this->trap, true);
+
 			}
 		}
 	}

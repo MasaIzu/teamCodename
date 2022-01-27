@@ -10,6 +10,7 @@ public:
 	int goal;
 	int needle;
 	int kagi;
+	int trap;
 
 	int map[6][14];
 	MapCount mapCount;

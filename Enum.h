@@ -8,4 +8,5 @@ enum block
 	GOAL,
 	NEEDLE,
 	KEY,
+	TRAP,
 };
