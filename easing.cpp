@@ -1,15 +1,28 @@
 #include"easing.h"
 #include<math.h>
-#include"Player.h"
 
 double Easing::easeInOutCubic(double x) {
 	return x < 0.5 ? 4 * x * x * x : 1 - pow(-2 * x + 2, 3) / 2;
 }
 
+double Easing::easeInBack(double x,double back) {
+	const double c1 = back;
+	const double c3 = c1 + 1;
+
+	return c3 * x * x * x - c1 * x * x;
+}
+
+double Easing::easeOutExpo(double x) {
+return x = 1 ? 1 : 1 - pow(2, -10 * x);
+}
+
+double Easing::easeOutQuart(double x) {
+return 1 - pow(1 - x, 4);
+}
+
 void Easing::EasingMove(int px, int py) {
 
 	//イージングの動き制御
-
 	//	メニュー画面
 	if (isEscape == 1) {
 		maxTime = 30; maxTime2 = 50; maxTime3 = 60; maxTime4 = 70; maxTime5 = 75;
@@ -232,7 +245,7 @@ void Easing::EasingDraw() {
 		}
 
 	}
-	
+
 }
 
 Easing::Easing() {
@@ -248,3 +261,6 @@ Easing::Easing() {
 	Back2Gh = LoadGraph("Back2.png", true);
 }
 
+//void Easing::EasingPlayer(int player) {
+//	player = startX + (finalX - startX) * easeInOutCubic(time / maxTime);
+//}

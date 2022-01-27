@@ -11,12 +11,8 @@ Map::Map(int map[6][14]) {
 	this->kagi = LoadGraph("keykari.png");
 	LoadDivGraph("check.png", 6, 6, 1, 64, 64, this->check);
 
-	MapCount mapCount
-	{
-		sizeof(map[0]) / sizeof(map[0][0]),
-		sizeof(map[0]) / sizeof(map[0])
-	};
-
+	mapCount = { 14,6 };
+	
 	for (int i = 0; i < mapCount.y; i++) {
 		for (int j = 0; j < mapCount.x; j++) {
 			this->map[i][j] = map[i][j];
@@ -34,6 +30,7 @@ void Map::setMap(int map[6][14]) {
 }
 
 void Map::MapDraw(int map[6][14]) {
+
 	for (int y = 0; y < mapCount.y; y++) {
 		for (int x = 0; x < mapCount.x; x++) {
 			if (map[y][x] == BLOCK) {

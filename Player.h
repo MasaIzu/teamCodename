@@ -1,15 +1,14 @@
 #pragma once
 #include "DxLib.h"
+#include"Easing.h"
+#include"Map.h"
 
 class Player
 {
 public:
 
 	//ÉÅÉìÉoïœêî
-	int x;
-	int y;
-	int r;
-	int speed;
+	int x;int y;int r;int speed;
 
 	int rightTopX, rightTopY;
 	int rightBottomX, rightBottomY;
@@ -20,16 +19,25 @@ public:
 	int rightBottomOldX, rightBottomOldY;
 	int leftTopOldX, leftTopOldY;
 	int leftBottomOldX, leftBottomOldY;
-	int playerPosOldX; int playerPosOldY;
+	int oldX; int oldY;
 
 	int isPlayerStop; int isHitKey;
 
 	int isGoal; int isPlayerAlive; int isKeyAlive;
 
+	int Start, Final, oldFinal; double time, maxTime;
+
+	int playerPosX, playerPosY, playerPosOldX, playerPosOldY; int isPush;
+	int playerLeftTopX, playerLeftTopY, oldPlayerLeftTopX, oldPlayerLeftTopY;
+	
+	int keyCount;
+private:
+	Easing* easing;
+	Map MAP;
 public:
 	//ä÷êîêßçÏ
-	void Move(char* keys, char* oldkeys, int map[][14]);
-	void Draw(int map[][14]);
+	void Move(char* keys, char* oldkeys, int map[6][14]);
+	void Draw();
 
 	Player();
 
