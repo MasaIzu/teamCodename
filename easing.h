@@ -66,7 +66,8 @@ public:
 
 	double easeInOutCubic(double x);
 	double easeInBack(double x, double back);
-
+	double easeOutExpo(double x);
+	double easeOutQuart(double x);
 	Easing();
 
 };

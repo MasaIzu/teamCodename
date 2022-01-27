@@ -3,7 +3,7 @@
 
 //ここは作った関数をまとめる所_ついでにシーン管理
 
-void Scene::PushMove(char* keys, char* oldkeys, int map[6][14],int mpx,int mpy, int PTX, int PTY) {
+void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy, int PTX, int PTY) {
 	if (scene == 0) {
 		if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
 			scene = 1;
@@ -15,7 +15,7 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14],int mpx,int mpy, 
 		key.Inputkey(keys, oldkeys, map, PTX, PTY);
 		easing.EasingMove(mpx, mpy);
 		easing.EasingLong(keys, oldkeys);
-		if (this->player.isPlayerAlive==1) {
+		if (this->player.isPlayerAlive == 1) {
 			if (player.isGoal == 1) {
 				scene = 2;
 			}
@@ -24,7 +24,7 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14],int mpx,int mpy, 
 	else if (scene == 2) {
 		if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
 			scene = 0;
-			player.x = 550; player.y =103;
+			player.x = 550; player.y = 103;
 			player.isGoal = 0; player.isKeyAlive = 1;
 			if (map[key.mapY][key.mapX] == 2) {
 				map[key.mapY][key.mapX] = 0;
@@ -53,7 +53,7 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14],int mpx,int mpy, 
 void Scene::PushDraw(int map[][14]) {
 	// 描画処理
 	if (scene == 0) {
-		DrawFormatString(350, 200, GetColor(255, 255, 255),"スタート_スペース");
+		DrawFormatString(350, 200, GetColor(255, 255, 255), "スタート_スペース");
 	}
 	else if (scene == 1) {
 		player.Draw();
@@ -72,7 +72,7 @@ void Scene::PushDraw(int map[][14]) {
 	}
 }
 
-Scene::Scene():MAP(MAP.map){
+Scene::Scene() :MAP(MAP.map) {
 	scene = 0;
 };
 

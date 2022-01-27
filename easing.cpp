@@ -12,6 +12,14 @@ double Easing::easeInBack(double x,double back) {
 	return c3 * x * x * x - c1 * x * x;
 }
 
+double Easing::easeOutExpo(double x) {
+return x = 1 ? 1 : 1 - pow(2, -10 * x);
+}
+
+double Easing::easeOutQuart(double x) {
+return 1 - pow(1 - x, 4);
+}
+
 void Easing::EasingMove(int px, int py) {
 
 	//イージングの動き制御

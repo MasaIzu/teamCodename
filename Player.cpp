@@ -21,7 +21,7 @@ Player::Player() {//次のタスク＿マップチップの当たり判定をplayerにする
 	oldX = 0; oldY = 0;
 	this->isPlayerStop = 0;
 	isHitKey = 0; isGoal = 0; isPlayerAlive = 1; isKeyAlive = 1;
-	Start = 0; Final = 0; oldFinal = 0; maxTime = 40; time = 0;
+	Start = 0; Final = 0; oldFinal = 0; maxTime = 20; time = 0;
 	playerPosOldX = 0; playerPosOldY = 0; isPush = 0;
 	playerLeftTopX = 0; playerLeftTopY = 0; oldPlayerLeftTopX = 0; oldPlayerLeftTopY = 0;
 }
@@ -388,22 +388,15 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 
 			}
 			else if (map[leftTopOldY][leftTopX] == NONE && map[leftTopY][leftTopOldX] == NEEDLE) {//もしもYが当たっているならYを元の位置に戻す
-				y = oldY;
-				isHitKey = 0;
-				isPlayerAlive = 0;
+				isHitKey = 0; 
 				break;
 			}
 			else if (map[leftTopOldY][leftTopX] == NEEDLE && map[leftTopY][leftTopOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
-				x = oldX;
-				isHitKey = 0;
-				isPlayerAlive = 0;
+				isHitKey = 0; 
 				break;
 			}
 			else if (map[leftTopOldY][leftTopX] == NEEDLE && map[leftTopY][leftTopOldX] == NEEDLE) {//どっちも当たってるのならば両方を元の位置に戻す
-				x = oldX;
-				y = oldY;
-				isHitKey = 0;
-				isPlayerAlive = 0;
+				isHitKey = 0; 
 				break;
 			}
 		}
@@ -413,22 +406,15 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 
 			}
 			else if (map[rightTopOldY][rightTopX] == NONE && map[rightTopY][rightTopOldX] == NEEDLE) {//もしもYが当たっているならYを元の位置に戻す
-				y = oldY;
-				isHitKey = 0;
-				isPlayerAlive = 0;
+				isHitKey = 0; 
 				break;
 			}
 			else if (map[rightTopOldY][rightTopX] == NEEDLE && map[rightTopY][rightTopOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
-				x = oldX;
-				isHitKey = 0;
-				isPlayerAlive = 0;
+				isHitKey = 0; 
 				break;
 			}
 			else if (map[rightTopOldY][rightTopX] == NEEDLE && map[rightTopY][rightTopOldX] == NEEDLE) {//どっちも当たってるのならば両方を元の位置に戻す
-				x = oldX;
-				y = oldY;
-				isHitKey = 0;
-				isPlayerAlive = 0;
+				isHitKey = 0; 
 				break;
 			}
 		}
@@ -438,22 +424,15 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 
 			}
 			else if (map[rightBottomOldY][rightBottomX] == NONE && map[rightBottomY][rightBottomOldX] == NEEDLE) {//もしもYが当たっているならYを元の位置に戻す
-				y = oldY;
-				isHitKey = 0;
-				isPlayerAlive = 0;
+				isHitKey = 0; 
 				break;
 			}
 			else if (map[rightBottomOldY][rightBottomX] == NEEDLE && map[rightBottomY][rightBottomOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
-				x = oldX;
-				isHitKey = 0;
-				isPlayerAlive = 0;
+				isHitKey = 0; 
 				break;
 			}
 			else if (map[rightBottomOldY][rightBottomX] == NEEDLE && map[rightBottomY][rightBottomOldX] == NEEDLE) {//どっちも当たってるのならば両方を元の位置に戻す
-				x = oldX;
-				y = oldY;
-				isHitKey = 0;
-				isPlayerAlive = 0;
+				isHitKey = 0; 
 				break;
 			}
 		}
@@ -463,22 +442,15 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 
 			}
 			else if (map[leftBottomOldY][leftBottomX] == NONE && map[leftBottomY][leftBottomOldX] == NEEDLE) {//もしもYが当たっているならYを元の位置に戻す
-				y = oldY;
 				isHitKey = 0;
-				isPlayerAlive = 0;
 				break;
 			}
 			else if (map[leftBottomOldY][leftBottomX] == NEEDLE && map[leftBottomY][leftBottomOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
-				x = oldX;
-				isHitKey = 0;
-				isPlayerAlive = 0;
+				isHitKey = 0; 
 				break;
 			}
 			else if (map[leftBottomOldY][leftBottomX] == NEEDLE && map[leftBottomY][leftBottomOldX] == NEEDLE) {//どっちも当たってるのならば両方を元の位置に戻す
-				x = oldX;
-				y = oldY;
-				isHitKey = 0;
-				isPlayerAlive = 0;
+				isHitKey = 0; 
 				break;
 			}
 		}
@@ -565,10 +537,15 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 		map[playerLeftTopY][playerLeftTopX] = NONE;
 	}
 
+	//もし当たっているならplayerは死ぬ
+	if (map[playerLeftTopY][playerLeftTopX] == NEEDLE) {
+		isPlayerAlive = 0;
+	}
+
 	if (isPush == 1) {
 		if (time < maxTime) {
 			time++;
-			playerPosY = Start + (y - Start) * easing->easeInBack(time / maxTime,2.08);
+			playerPosY = Start + (y - Start) * easing->easeOutQuart(time / maxTime);
 		}
 		else {
 			time = 0;
@@ -578,7 +555,7 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 	else if (isPush == 2) {
 		if (time < maxTime) {
 			time++;
-			playerPosX = Start + (x - Start) * easing->easeInBack(time / maxTime,1.0);
+			playerPosX = Start + (x - Start) * easing->easeOutQuart(time / maxTime);
 		}
 		else {
 			time = 0;
