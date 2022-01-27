@@ -1,6 +1,7 @@
 #pragma once
 #include "DxLib.h"
 #include"Easing.h"
+#include"Map.h"
 
 class Player
 {
@@ -29,9 +30,10 @@ public:
 	int playerPosX, playerPosY, playerPosOldX, playerPosOldY; int isPush;
 	int playerLeftTopX, playerLeftTopY, oldPlayerLeftTopX, oldPlayerLeftTopY;
 	
-
+	int keyCount;
 private:
 	Easing* easing;
+	Map MAP;
 public:
 	//ä÷êîêßçÏ
 	void Move(char* keys, char* oldkeys, int map[6][14]);

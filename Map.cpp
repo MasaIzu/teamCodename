@@ -10,12 +10,8 @@ Map::Map(int map[6][14]) {
 	this->needle = LoadGraph("toge_kari.png");
 	this->kagi = LoadGraph("keykari.png");
 
-	MapCount mapCount
-	{
-		14,
-		6
-	};
-
+	mapCount = { 14,6 };
+	
 	for (int i = 0; i < mapCount.y; i++) {
 		for (int j = 0; j < mapCount.x; j++) {
 			this->map[i][j] = map[i][j];
@@ -33,12 +29,6 @@ void Map::setMap(int map[6][14]) {
 }
 
 void Map::MapDraw(int map[6][14]) {
-
-	MapCount mapCount
-	{
-		14,
-		6
-	};
 
 	for (int y = 0; y < mapCount.y; y++) {
 		for (int x = 0; x < mapCount.x; x++) {

@@ -15,6 +15,7 @@ public:
 	MapCount mapCount;
 	
 public:
+
 	// accesser
 	int* getMap();
 	void setMap(int map[6][14]);

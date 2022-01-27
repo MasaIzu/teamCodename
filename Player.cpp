@@ -2,8 +2,9 @@
 #include "DxLib.h"
 #include"Global.h"
 #include"Enum.h"
+#include"Map.h"
 
-Player::Player() {//次のタスク＿マップチップの当たり判定をplayerにする
+Player::Player() :MAP(MAP.map) {//次のタスク＿マップチップの当たり判定をplayerにする
 	this->x = 550;
 	this->playerPosX = 550;
 	this->y = 103;
@@ -24,6 +25,7 @@ Player::Player() {//次のタスク＿マップチップの当たり判定をplayerにする
 	Start = 0; Final = 0; oldFinal = 0; maxTime = 20; time = 0;
 	playerPosOldX = 0; playerPosOldY = 0; isPush = 0;
 	playerLeftTopX = 0; playerLeftTopY = 0; oldPlayerLeftTopX = 0; oldPlayerLeftTopY = 0;
+	keyCount = 0;
 }
 
 
@@ -124,12 +126,12 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 			if (map[leftTopOldY][leftTopX] == NONE && map[leftTopY][leftTopOldX] == NONE) {//もしも特にないのであれば何もしない
 
 			}
-			else if (map[leftTopOldY][leftTopX] == NONE && map[leftTopY][leftTopOldX] == BLOCK) {//もしもYが当たっているならYを元の位置に戻す
+			else if (map[leftTopOldY][leftTopX] == NONE || KEY && map[leftTopY][leftTopOldX] == BLOCK) {//もしもYが当たっているならYを元の位置に戻す
 				y = oldY;
 				isHitKey = 0;
 				break;
 			}
-			else if (map[leftTopOldY][leftTopX] == BLOCK && map[leftTopY][leftTopOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
+			else if (map[leftTopOldY][leftTopX] == BLOCK && map[leftTopY][leftTopOldX] == NONE || KEY) {//もしもXが当たっているならXを元の位置に戻す
 				x = oldX;
 				isHitKey = 0;
 				break;
@@ -146,12 +148,12 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 			if (map[rightTopOldY][rightTopX] == NONE && map[rightTopY][rightTopOldX] == NONE) {//もしも特にないのであれば何もしない
 
 			}
-			else if (map[rightTopOldY][rightTopX] == NONE && map[rightTopY][rightTopOldX] == BLOCK) {//もしもYが当たっているならYを元の位置に戻す
+			else if (map[rightTopOldY][rightTopX] == NONE || KEY && map[rightTopY][rightTopOldX] == BLOCK) {//もしもYが当たっているならYを元の位置に戻す
 				y = oldY;
 				isHitKey = 0;
 				break;
 			}
-			else if (map[rightTopOldY][rightTopX] == BLOCK && map[rightTopY][rightTopOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
+			else if (map[rightTopOldY][rightTopX] == BLOCK && map[rightTopY][rightTopOldX] == NONE || KEY) {//もしもXが当たっているならXを元の位置に戻す
 				x = oldX;
 				isHitKey = 0;
 				break;
@@ -168,12 +170,12 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 			if (map[rightBottomOldY][rightBottomX] == NONE && map[rightBottomY][rightBottomOldX] == NONE) {//もしも特にないのであれば何もしない
 
 			}
-			else if (map[rightBottomOldY][rightBottomX] == NONE && map[rightBottomY][rightBottomOldX] == BLOCK) {//もしもYが当たっているならYを元の位置に戻す
+			else if (map[rightBottomOldY][rightBottomX] == NONE || KEY && map[rightBottomY][rightBottomOldX] == BLOCK) {//もしもYが当たっているならYを元の位置に戻す
 				y = oldY;
 				isHitKey = 0;
 				break;
 			}
-			else if (map[rightBottomOldY][rightBottomX] == BLOCK && map[rightBottomY][rightBottomOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
+			else if (map[rightBottomOldY][rightBottomX] == BLOCK && map[rightBottomY][rightBottomOldX] == NONE || KEY) {//もしもXが当たっているならXを元の位置に戻す
 				x = oldX;
 				isHitKey = 0;
 				break;
@@ -190,16 +192,17 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 			if (map[leftBottomOldY][leftBottomX] == NONE && map[leftBottomY][leftBottomOldX] == NONE) {//もしも特にないのであれば何もしない
 
 			}
-			else if (map[leftBottomOldY][leftBottomX] == NONE && map[leftBottomY][leftBottomOldX] == BLOCK) {//もしもYが当たっているならYを元の位置に戻す
+			else if (map[leftBottomOldY][leftBottomX] == NONE || KEY && map[leftBottomY][leftBottomOldX] == BLOCK) {//もしもYが当たっているならYを元の位置に戻す
 				y = oldY;
 				isHitKey = 0;
 				break;
 			}
-			else if (map[leftBottomOldY][leftBottomX] == BLOCK && map[leftBottomY][leftBottomOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
+			else if (map[leftBottomOldY][leftBottomX] == BLOCK && map[leftBottomY][leftBottomOldX] == NONE || KEY) {//もしもXが当たっているならXを元の位置に戻す
 				x = oldX;
 				isHitKey = 0;
 				break;
 			}
+			
 			else if (map[leftBottomOldY][leftBottomX] == BLOCK && map[leftBottomY][leftBottomOldX] == BLOCK) {//どっちも当たってるのならば両方を元の位置に戻す
 				x = oldX;
 				y = oldY;
@@ -213,12 +216,12 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 			if (map[leftTopOldY][leftTopX] == NONE && map[leftTopY][leftTopOldX] == NONE) {//もしも特にないのであれば何もしない
 
 			}
-			else if (map[leftTopOldY][leftTopX] == NONE && map[leftTopY][leftTopOldX] == ONOFFBLOCK) {//もしもYが当たっているならYを元の位置に戻す
+			else if (map[leftTopOldY][leftTopX] == NONE || KEY && map[leftTopY][leftTopOldX] == ONOFFBLOCK) {//もしもYが当たっているならYを元の位置に戻す
 				y = oldY;
 				isHitKey = 0;
 				break;
 			}
-			else if (map[leftTopOldY][leftTopX] == ONOFFBLOCK && map[leftTopY][leftTopOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
+			else if (map[leftTopOldY][leftTopX] == ONOFFBLOCK && map[leftTopY][leftTopOldX] == NONE || KEY) {//もしもXが当たっているならXを元の位置に戻す
 				x = oldX;
 				isHitKey = 0;
 				break;
@@ -235,12 +238,12 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 			if (map[rightTopOldY][rightTopX] == NONE && map[rightTopY][rightTopOldX] == NONE) {//もしも特にないのであれば何もしない
 
 			}
-			else if (map[rightTopOldY][rightTopX] == NONE && map[rightTopY][rightTopOldX] == ONOFFBLOCK) {//もしもYが当たっているならYを元の位置に戻す
+			else if (map[rightTopOldY][rightTopX] == NONE || KEY && map[rightTopY][rightTopOldX] == ONOFFBLOCK) {//もしもYが当たっているならYを元の位置に戻す
 				y = oldY;
 				isHitKey = 0;
 				break;
 			}
-			else if (map[rightTopOldY][rightTopX] == ONOFFBLOCK && map[rightTopY][rightTopOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
+			else if (map[rightTopOldY][rightTopX] == ONOFFBLOCK && map[rightTopY][rightTopOldX] == NONE || KEY) {//もしもXが当たっているならXを元の位置に戻す
 				x = oldX;
 				isHitKey = 0;
 				break;
@@ -257,12 +260,12 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 			if (map[rightBottomOldY][rightBottomX] == NONE && map[rightBottomY][rightBottomOldX] == NONE) {//もしも特にないのであれば何もしない
 
 			}
-			else if (map[rightBottomOldY][rightBottomX] == NONE && map[rightBottomY][rightBottomOldX] == ONOFFBLOCK) {//もしもYが当たっているならYを元の位置に戻す
+			else if (map[rightBottomOldY][rightBottomX] == NONE || KEY && map[rightBottomY][rightBottomOldX] == ONOFFBLOCK) {//もしもYが当たっているならYを元の位置に戻す
 				y = oldY;
 				isHitKey = 0;
 				break;
 			}
-			else if (map[rightBottomOldY][rightBottomX] == ONOFFBLOCK && map[rightBottomY][rightBottomOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
+			else if (map[rightBottomOldY][rightBottomX] == ONOFFBLOCK && map[rightBottomY][rightBottomOldX] == NONE || KEY) {//もしもXが当たっているならXを元の位置に戻す
 				x = oldX;
 				isHitKey = 0;
 				break;
@@ -279,12 +282,12 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 			if (map[leftBottomOldY][leftBottomX] == NONE && map[leftBottomY][leftBottomOldX] == NONE) {//もしも特にないのであれば何もしない
 
 			}
-			else if (map[leftBottomOldY][leftBottomX] == NONE && map[leftBottomY][leftBottomOldX] == ONOFFBLOCK) {//もしもYが当たっているならYを元の位置に戻す
+			else if (map[leftBottomOldY][leftBottomX] == NONE || KEY && map[leftBottomY][leftBottomOldX] == ONOFFBLOCK) {//もしもYが当たっているならYを元の位置に戻す
 				y = oldY;
 				isHitKey = 0;
 				break;
 			}
-			else if (map[leftBottomOldY][leftBottomX] == ONOFFBLOCK && map[leftBottomY][leftBottomOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
+			else if (map[leftBottomOldY][leftBottomX] == ONOFFBLOCK && map[leftBottomY][leftBottomOldX] == NONE || KEY) {//もしもXが当たっているならXを元の位置に戻す
 				x = oldX;
 				isHitKey = 0;
 				break;
@@ -303,19 +306,16 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 
 			}
 			else if (map[leftTopOldY][leftTopX] == NONE && map[leftTopY][leftTopOldX] == GOAL) {//もしもYが当たっているならYを元の位置に戻す
-				if (isKeyAlive == 0) {
-					isGoal = 1;
-				}
+				isHitKey = 0;
+				break;
 			}
 			else if (map[leftTopOldY][leftTopX] == GOAL && map[leftTopY][leftTopOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
-				if (isKeyAlive == 0) {
-					isGoal = 1;
-				}
+				isHitKey = 0;
+				break;
 			}
 			else if (map[leftTopOldY][leftTopX] == GOAL && map[leftTopY][leftTopOldX] == GOAL) {//どっちも当たってるのならば両方を元の位置に戻す
-				if (isKeyAlive == 0) {
-					isGoal = 1;
-				}
+				isHitKey = 0;
+				break;
 			}
 		}
 
@@ -324,19 +324,16 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 
 			}
 			else if (map[rightTopOldY][rightTopX] == NONE && map[rightTopY][rightTopOldX] == GOAL) {//もしもYが当たっているならYを元の位置に戻す
-				if (isKeyAlive == 0) {
-					isGoal = 1;
-				}
+				isHitKey = 0;
+				break;
 			}
 			else if (map[rightTopOldY][rightTopX] == GOAL && map[rightTopY][rightTopOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
-				if (isKeyAlive == 0) {
-					isGoal = 1;
-				}
+				isHitKey = 0;
+				break;
 			}
 			else if (map[rightTopOldY][rightTopX] == GOAL && map[rightTopY][rightTopOldX] == GOAL) {//どっちも当たってるのならば両方を元の位置に戻す
-				if (isKeyAlive == 0) {
-					isGoal = 1;
-				}
+				isHitKey = 0;
+				break;
 			}
 		}
 
@@ -345,19 +342,16 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 
 			}
 			else if (map[rightBottomOldY][rightBottomX] == NONE && map[rightBottomY][rightBottomOldX] == GOAL) {//もしもYが当たっているならYを元の位置に戻す
-				if (isKeyAlive == 0) {
-					isGoal = 1;
-				}
+				isHitKey = 0;
+				break;
 			}
 			else if (map[rightBottomOldY][rightBottomX] == GOAL && map[rightBottomY][rightBottomOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
-				if (isKeyAlive == 0) {
-					isGoal = 1;
-				}
+				isHitKey = 0;
+				break;
 			}
 			else if (map[rightBottomOldY][rightBottomX] == GOAL && map[rightBottomY][rightBottomOldX] == GOAL) {//どっちも当たってるのならば両方を元の位置に戻す
-				if (isKeyAlive == 0) {
-					isGoal = 1;
-				}
+				isHitKey = 0;
+				break;
 			}
 		}
 
@@ -366,19 +360,16 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 
 			}
 			else if (map[leftBottomOldY][leftBottomX] == NONE && map[leftBottomY][leftBottomOldX] == GOAL) {//もしもYが当たっているならYを元の位置に戻す
-				if (isKeyAlive == 0) {
-					isGoal = 1;
-				}
+				isHitKey = 0;
+				break;
 			}
 			else if (map[leftBottomOldY][leftBottomX] == GOAL && map[leftBottomY][leftBottomOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
-				if (isKeyAlive == 0) {
-					isGoal = 1;
-				}
+				isHitKey = 0;
+				break;
 			}
 			else if (map[leftBottomOldY][leftBottomX] == GOAL && map[leftBottomY][leftBottomOldX] == GOAL) {//どっちも当たってるのならば両方を元の位置に戻す
-				if (isKeyAlive == 0) {
-					isGoal = 1;
-				}
+				isHitKey = 0;
+				break;
 			}
 		}
 
@@ -387,16 +378,16 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 			if (map[leftTopOldY][leftTopX] == NONE && map[leftTopY][leftTopOldX] == NONE) {//もしも特にないのであれば何もしない
 
 			}
-			else if (map[leftTopOldY][leftTopX] == NONE && map[leftTopY][leftTopOldX] == NEEDLE) {//もしもYが当たっているならYを元の位置に戻す
-				isHitKey = 0; 
+			else if (map[leftTopOldY][leftTopX] == NONE || KEY && map[leftTopY][leftTopOldX] == NEEDLE) {//もしもYが当たっているならYを元の位置に戻す
+				isHitKey = 0;
 				break;
 			}
-			else if (map[leftTopOldY][leftTopX] == NEEDLE && map[leftTopY][leftTopOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
-				isHitKey = 0; 
+			else if (map[leftTopOldY][leftTopX] == NEEDLE && map[leftTopY][leftTopOldX] == NONE || KEY) {//もしもXが当たっているならXを元の位置に戻す
+				isHitKey = 0;
 				break;
 			}
 			else if (map[leftTopOldY][leftTopX] == NEEDLE && map[leftTopY][leftTopOldX] == NEEDLE) {//どっちも当たってるのならば両方を元の位置に戻す
-				isHitKey = 0; 
+				isHitKey = 0;
 				break;
 			}
 		}
@@ -405,16 +396,16 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 			if (map[rightTopOldY][rightTopX] == NONE && map[rightTopY][rightTopOldX] == NONE) {//もしも特にないのであれば何もしない
 
 			}
-			else if (map[rightTopOldY][rightTopX] == NONE && map[rightTopY][rightTopOldX] == NEEDLE) {//もしもYが当たっているならYを元の位置に戻す
-				isHitKey = 0; 
+			else if (map[rightTopOldY][rightTopX] == NONE || KEY && map[rightTopY][rightTopOldX] == NEEDLE) {//もしもYが当たっているならYを元の位置に戻す
+				isHitKey = 0;
 				break;
 			}
-			else if (map[rightTopOldY][rightTopX] == NEEDLE && map[rightTopY][rightTopOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
-				isHitKey = 0; 
+			else if (map[rightTopOldY][rightTopX] == NEEDLE && map[rightTopY][rightTopOldX] == NONE || KEY) {//もしもXが当たっているならXを元の位置に戻す
+				isHitKey = 0;
 				break;
 			}
 			else if (map[rightTopOldY][rightTopX] == NEEDLE && map[rightTopY][rightTopOldX] == NEEDLE) {//どっちも当たってるのならば両方を元の位置に戻す
-				isHitKey = 0; 
+				isHitKey = 0;
 				break;
 			}
 		}
@@ -423,16 +414,16 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 			if (map[rightBottomOldY][rightBottomX] == NONE && map[rightBottomY][rightBottomOldX] == NONE) {//もしも特にないのであれば何もしない
 
 			}
-			else if (map[rightBottomOldY][rightBottomX] == NONE && map[rightBottomY][rightBottomOldX] == NEEDLE) {//もしもYが当たっているならYを元の位置に戻す
-				isHitKey = 0; 
+			else if (map[rightBottomOldY][rightBottomX] == NONE || KEY && map[rightBottomY][rightBottomOldX] == NEEDLE) {//もしもYが当たっているならYを元の位置に戻す
+				isHitKey = 0;
 				break;
 			}
-			else if (map[rightBottomOldY][rightBottomX] == NEEDLE && map[rightBottomY][rightBottomOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
-				isHitKey = 0; 
+			else if (map[rightBottomOldY][rightBottomX] == NEEDLE && map[rightBottomY][rightBottomOldX] == NONE || KEY) {//もしもXが当たっているならXを元の位置に戻す
+				isHitKey = 0;
 				break;
 			}
 			else if (map[rightBottomOldY][rightBottomX] == NEEDLE && map[rightBottomY][rightBottomOldX] == NEEDLE) {//どっちも当たってるのならば両方を元の位置に戻す
-				isHitKey = 0; 
+				isHitKey = 0;
 				break;
 			}
 		}
@@ -441,91 +432,15 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 			if (map[leftBottomOldY][leftBottomX] == NONE && map[leftBottomY][leftBottomOldX] == NONE) {//もしも特にないのであれば何もしない
 
 			}
-			else if (map[leftBottomOldY][leftBottomX] == NONE && map[leftBottomY][leftBottomOldX] == NEEDLE) {//もしもYが当たっているならYを元の位置に戻す
+			else if (map[leftBottomOldY][leftBottomX] == NONE || KEY && map[leftBottomY][leftBottomOldX] == NEEDLE) {//もしもYが当たっているならYを元の位置に戻す
 				isHitKey = 0;
 				break;
 			}
-			else if (map[leftBottomOldY][leftBottomX] == NEEDLE && map[leftBottomY][leftBottomOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
-				isHitKey = 0; 
+			else if (map[leftBottomOldY][leftBottomX] == NEEDLE && map[leftBottomY][leftBottomOldX] == NONE || KEY) {//もしもXが当たっているならXを元の位置に戻す
+				isHitKey = 0;
 				break;
 			}
 			else if (map[leftBottomOldY][leftBottomX] == NEEDLE && map[leftBottomY][leftBottomOldX] == NEEDLE) {//どっちも当たってるのならば両方を元の位置に戻す
-				isHitKey = 0; 
-				break;
-			}
-		}
-
-		//もし当たっているならもとに戻すKEY版
-		if (map[leftTopY][leftTopX] == KEY) {
-			if (map[leftTopOldY][leftTopX] == NONE && map[leftTopY][leftTopOldX] == NONE) {//もしも特にないのであれば何もしない
-
-			}
-			else if (map[leftTopOldY][leftTopX] == NONE && map[leftTopY][leftTopOldX] == KEY) {//もしもYが当たっているならYを元の位置に戻す
-				
-				isHitKey = 0;
-				break;
-			}
-			else if (map[leftTopOldY][leftTopX] == KEY && map[leftTopY][leftTopOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
-				
-				isHitKey = 0;
-				break;
-			}
-			else if (map[leftTopOldY][leftTopX] == KEY && map[leftTopY][leftTopOldX] == KEY) {//どっちも当たってるのならば両方を元の位置に戻す
-				
-				isHitKey = 0;
-				break;
-			}
-		}
-
-		if (map[rightTopY][rightTopX] == KEY) {
-			if (map[rightTopOldY][rightTopX] == NONE && map[rightTopY][rightTopOldX] == NONE) {//もしも特にないのであれば何もしない
-
-			}
-			else if (map[rightTopOldY][rightTopX] == NONE && map[rightTopY][rightTopOldX] == KEY) {//もしもYが当たっているならYを元の位置に戻す
-				isHitKey = 0;
-				break;
-			}
-			else if (map[rightTopOldY][rightTopX] == KEY && map[rightTopY][rightTopOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
-				isHitKey = 0;
-				break;
-			}
-			else if (map[rightTopOldY][rightTopX] == KEY && map[rightTopY][rightTopOldX] == KEY) {//どっちも当たってるのならば両方を元の位置に戻す
-				isHitKey = 0;
-				break;
-			}
-		}
-
-		if (map[rightBottomY][rightBottomX] == KEY) {
-			if (map[rightBottomOldY][rightBottomX] == NONE && map[rightBottomY][rightBottomOldX] == NONE) {//もしも特にないのであれば何もしない
-
-			}
-			else if (map[rightBottomOldY][rightBottomX] == NONE && map[rightBottomY][rightBottomOldX] == KEY) {//もしもYが当たっているならYを元の位置に戻す
-				isHitKey = 0;
-				break;
-			}
-			else if (map[rightBottomOldY][rightBottomX] == KEY && map[rightBottomY][rightBottomOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
-				isHitKey = 0;
-				break;
-			}
-			else if (map[rightBottomOldY][rightBottomX] == KEY && map[rightBottomY][rightBottomOldX] == KEY) {//どっちも当たってるのならば両方を元の位置に戻す
-				isHitKey = 0;
-				break;
-			}
-		}
-
-		if (map[leftBottomY][leftBottomX] == KEY) {
-			if (map[leftBottomOldY][leftBottomX] == NONE && map[leftBottomY][leftBottomOldX] == NONE) {//もしも特にないのであれば何もしない
-
-			}
-			else if (map[leftBottomOldY][leftBottomX] == NONE && map[leftBottomY][leftBottomOldX] == KEY) {//もしもYが当たっているならYを元の位置に戻す
-				isHitKey = 0;
-				break;
-			}
-			else if (map[leftBottomOldY][leftBottomX] == KEY && map[leftBottomY][leftBottomOldX] == NONE) {//もしもXが当たっているならXを元の位置に戻す
-				isHitKey = 0;
-				break;
-			}
-			else if (map[leftBottomOldY][leftBottomX] == KEY && map[leftBottomY][leftBottomOldX] == KEY) {//どっちも当たってるのならば両方を元の位置に戻す
 				isHitKey = 0;
 				break;
 			}
@@ -540,6 +455,23 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 	//もし当たっているならplayerは死ぬ
 	if (map[playerLeftTopY][playerLeftTopX] == NEEDLE) {
 		isPlayerAlive = 0;
+	}
+
+	//もし当たっているならplayerはゴールする
+	if (map[playerLeftTopY][playerLeftTopX] == GOAL) {
+		for (int y = 0; y < MAP.mapCount.y; y++) {
+			for (int x = 0; x < MAP.mapCount.x; x++) {
+				if (map[y][x] == KEY) {
+					keyCount++;
+				}
+			}
+		}
+		if (keyCount == 0) {
+			isGoal = 1;
+		}
+	}
+	else {
+		keyCount = 0;
 	}
 
 	if (isPush == 1) {

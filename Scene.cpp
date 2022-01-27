@@ -72,7 +72,7 @@ void Scene::PushDraw(int map[][14]) {
 	}
 }
 
-Scene::Scene() :MAP(MAP.map) {
+Scene::Scene():MAP(MAP.map) {
 	scene = 0;
 };
 
