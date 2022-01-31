@@ -31,6 +31,8 @@ public:
 	int playerLeftTopX, playerLeftTopY, oldPlayerLeftTopX, oldPlayerLeftTopY;
 	
 	int keyCount; int onaCount; int playerCount; int trapCount; float trapTimer;
+
+	int playerMapPosX, playerMapPosY;
 private:
 	Easing* easing;
 	Map MAP;

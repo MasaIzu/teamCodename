@@ -26,6 +26,7 @@ Player::Player() :MAP(MAP.map) {//次のタスク＿マップチップの当たり判定をplayerに
 	playerPosOldX = 0; playerPosOldY = 0; isPush = 0;
 	playerLeftTopX = 0; playerLeftTopY = 0; oldPlayerLeftTopX = 0; oldPlayerLeftTopY = 0;
 	keyCount = 0; onaCount = 0; playerCount = 0; trapTimer = 4.5;
+	playerMapPosX = 0; playerMapPosY = 0;
 }
 
 
@@ -67,6 +68,11 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 
 	oldPlayerLeftTopX = (playerPosOldX - r) / BLOCK_SIZE;
 	oldPlayerLeftTopY = (playerPosOldY - r) / BLOCK_SIZE;
+
+	if (playerCount == 1) {
+		playerMapPosX = playerLeftTopX;
+		playerMapPosY = playerLeftTopY;
+	}
 
 	while (isHitKey == 1 || isHitKey == 2 || isHitKey == 3 || isHitKey == 4) {
 
@@ -465,19 +471,20 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 		}
 	}
 	if (onaCount % 2 == 0) {
-		trapCount = 1;
-
 		for (int y = 0; y < MAP.mapCount.y; y++) {
 			for (int x = 0; x < MAP.mapCount.x; x++) {
 				if (map[y][x] == TRAPDOWN) {
-					map[y][x] = TRAP;
+					if (playerLeftTopX == x && playerLeftTopY == y) {
+
+					}
+					else {
+						map[y][x] = TRAP;
+					}
 				}
 			}
 		}
-
 	}
 	else {
-		trapCount = 0;
 		for (int y = 0; y < MAP.mapCount.y; y++) {
 			for (int x = 0; x < MAP.mapCount.x; x++) {
 				if (map[y][x] == TRAP) {
@@ -498,7 +505,7 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 	}
 	//もし当たっているならplayerは死ぬTRAP版
 	if (map[playerLeftTopY][playerLeftTopX] == TRAPDOWN) {
-		
+
 	}
 	if (map[playerLeftTopY][playerLeftTopX] == TRAP) {
 		isPlayerAlive = 0;

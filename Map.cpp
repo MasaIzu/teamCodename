@@ -51,6 +51,9 @@ void Map::MapDraw(int map[6][14]) {
 			if (map[y][x] == TRAP) {
 				DrawGraph(x * BLOCK_SIZE, y * BLOCK_SIZE, this->trap, true);
 			}
+			if (map[y][x] == TRAPDOWN) {
+				DrawGraph(x * BLOCK_SIZE, y * BLOCK_SIZE, this->kagi, true);
+			}
 		}
 	}
 }
