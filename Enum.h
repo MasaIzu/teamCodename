@@ -9,4 +9,6 @@ enum block
 	NEEDLE,
 	KEY,
 	TRAP,
+	TRAPDOWN,
+
 };

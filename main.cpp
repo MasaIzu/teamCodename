@@ -41,8 +41,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	int mapInit[6][14] = {
 	{ 1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
-	{ 1,0,0,0,0,0,4,4,0,0,0,6,0,1 },
-	{ 1,5,0,0,0,0,0,0,0,0,0,0,0,1 },
+	{ 1,0,0,0,0,0,4,4,0,0,0,0,6,1 },
+	{ 1,5,5,5,5,5,0,0,0,0,0,0,0,1 },
 	{ 1,0,0,0,1,0,0,3,0,0,0,0,6,1 },
 	{ 1,0,1,0,0,0,5,1,4,0,0,0,0,1 },
 	{ 1,1,1,1,4,4,4,1,1,1,1,1,1,1 },
@@ -74,7 +74,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		// XVˆ—
 		
-		//•ïŠÜ‚Ìˆ—‚ª‚Å‚«‚Ä‚¢‚Ü‚¹‚ñ
+	
 		SCENE->PushMove(keys, oldkeys, mapInit, x, y, player->leftTopX, player->leftTopY);
 
 		

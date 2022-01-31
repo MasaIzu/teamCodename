@@ -12,7 +12,7 @@ Map::Map(int map[6][14]) {
 	this->trap = LoadGraph("needle1.png");
 
 	mapCount = { 14,6 };
-	
+
 	for (int i = 0; i < mapCount.y; i++) {
 		for (int j = 0; j < mapCount.x; j++) {
 			this->map[i][j] = map[i][j];
@@ -49,9 +49,7 @@ void Map::MapDraw(int map[6][14]) {
 				DrawGraph(x * BLOCK_SIZE, y * BLOCK_SIZE, this->kagi, true);
 			}
 			if (map[y][x] == TRAP) {
-
 				DrawGraph(x * BLOCK_SIZE, y * BLOCK_SIZE, this->trap, true);
-
 			}
 		}
 	}
