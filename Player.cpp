@@ -25,7 +25,7 @@ Player::Player() :MAP(MAP.map) {//次のタスク＿マップチップの当たり判定をplayerに
 	Start = 0; Final = 0; oldFinal = 0; maxTime = 20; time = 0;
 	playerPosOldX = 0; playerPosOldY = 0; isPush = 0;
 	playerLeftTopX = 0; playerLeftTopY = 0; oldPlayerLeftTopX = 0; oldPlayerLeftTopY = 0;
-	keyCount = 0;
+	keyCount = 0; onaCount = 0; playerCount = 0; trapTimer = 4.5;
 }
 
 
@@ -36,21 +36,25 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 			isHitKey = 1;
 			isPush = 1;
 			Start = y;
+			playerCount = 1;
 		}
-		if (keys[KEY_INPUT_DOWN] == 1 && oldkeys[KEY_INPUT_DOWN] == 0) {
+		else if (keys[KEY_INPUT_DOWN] == 1 && oldkeys[KEY_INPUT_DOWN] == 0) {
 			isHitKey = 2;
 			isPush = 1;
 			Start = y;
+			playerCount = 1;
 		}
-		if (keys[KEY_INPUT_LEFT] == 1 && oldkeys[KEY_INPUT_LEFT] == 0) {
+		else if (keys[KEY_INPUT_LEFT] == 1 && oldkeys[KEY_INPUT_LEFT] == 0) {
 			isHitKey = 3;
 			isPush = 2;
 			Start = x;
+			playerCount = 1;
 		}
-		if (keys[KEY_INPUT_RIGHT] == 1 && oldkeys[KEY_INPUT_RIGHT] == 0) {
+		else if (keys[KEY_INPUT_RIGHT] == 1 && oldkeys[KEY_INPUT_RIGHT] == 0) {
 			isHitKey = 4;
 			isPush = 2;
 			Start = x;
+			playerCount = 1;
 		}
 	}
 
@@ -58,11 +62,11 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 	leftTopX = (x - r) / BLOCK_SIZE;
 	leftTopY = (y - r) / BLOCK_SIZE;
 
-	playerLeftTopX = (playerPosX) / BLOCK_SIZE;
-	playerLeftTopY = (playerPosY) / BLOCK_SIZE;
+	playerLeftTopX = (playerPosX - r) / BLOCK_SIZE;
+	playerLeftTopY = (playerPosY - r) / BLOCK_SIZE;
 
-	oldPlayerLeftTopX = (playerPosOldX) / BLOCK_SIZE;
-	oldPlayerLeftTopY = (playerPosOldY) / BLOCK_SIZE;
+	oldPlayerLeftTopX = (playerPosOldX - r) / BLOCK_SIZE;
+	oldPlayerLeftTopY = (playerPosOldY - r) / BLOCK_SIZE;
 
 	while (isHitKey == 1 || isHitKey == 2 || isHitKey == 3 || isHitKey == 4) {
 
@@ -202,7 +206,7 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 				isHitKey = 0;
 				break;
 			}
-			
+
 			else if (map[leftBottomOldY][leftBottomX] == BLOCK && map[leftBottomY][leftBottomOldX] == BLOCK) {//どっちも当たってるのならば両方を元の位置に戻す
 				x = oldX;
 				y = oldY;
@@ -445,6 +449,42 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 				break;
 			}
 		}
+
+
+	}
+
+
+	if (playerCount == 1) {
+		if (x != playerPosX) {
+			onaCount++;
+			playerCount = 0;
+		}
+		else if (y != playerPosY) {
+			onaCount++;
+			playerCount = 0;
+		}
+	}
+	if (onaCount % 2 == 0) {
+		trapCount = 1;
+
+		for (int y = 0; y < MAP.mapCount.y; y++) {
+			for (int x = 0; x < MAP.mapCount.x; x++) {
+				if (map[y][x] == TRAPDOWN) {
+					map[y][x] = TRAP;
+				}
+			}
+		}
+
+	}
+	else {
+		trapCount = 0;
+		for (int y = 0; y < MAP.mapCount.y; y++) {
+			for (int x = 0; x < MAP.mapCount.x; x++) {
+				if (map[y][x] == TRAP) {
+					map[y][x] = TRAPDOWN;
+				}
+			}
+		}
 	}
 
 	//もし当たっているならKEYを消す
@@ -452,8 +492,25 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 		map[playerLeftTopY][playerLeftTopX] = NONE;
 	}
 
-	//もし当たっているならplayerは死ぬ
+	//もし当たっているならplayerは死ぬNEEDLE版
 	if (map[playerLeftTopY][playerLeftTopX] == NEEDLE) {
+		isPlayerAlive = 0;
+	}
+	//もし当たっているならplayerは死ぬTRAP版
+	if (map[playerLeftTopY][playerLeftTopX] == TRAPDOWN) {
+		
+	}
+	if (map[playerLeftTopY][playerLeftTopX] == TRAP) {
+		isPlayerAlive = 0;
+	}
+	//電撃に当たると死ぬ
+	if (map[playerLeftTopY][playerLeftTopX] == ELEC1) {
+		isPlayerAlive = 0;
+	}
+	if (map[playerLeftTopY][playerLeftTopX] == ELEC2) {
+		isPlayerAlive = 0;
+	}
+	if (map[playerLeftTopY][playerLeftTopX] == ELEC3) {
 		isPlayerAlive = 0;
 	}
 
@@ -499,7 +556,9 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 void Player::Draw() {
 	DrawCircle(this->playerPosX - r, this->playerPosY - r, r, GetColor(255, 255, 255), true);
 
-	DrawFormatString(300, 500, GetColor(255, 255, 255), "%d", playerLeftTopX);
-	DrawFormatString(300, 520, GetColor(255, 255, 255), "%d", playerLeftTopY);
+	DrawFormatString(300, 500, GetColor(255, 255, 255), "%d", onaCount);
+	DrawFormatString(300, 540, GetColor(255, 255, 255), "%d", x);
+	DrawFormatString(300, 560, GetColor(255, 255, 255), "%d", playerPosX);
+	DrawFormatString(300, 580, GetColor(255, 255, 255), "%d", playerCount);
 }
 

@@ -6,18 +6,15 @@
 
 class Scene
 {
-private:
+public:
 	int scene;
 	Player player;
-	Key key;
-	Easing easing;
 	Map MAP;
-public:
+	Easing easing;
+	Key key;
 
-
-	void PushMove(char* keys, char* oldkeys, int map[][14],int mpx,int mpy, int PTX, int PTY);
-	void PushDraw(int map[][14]); 
-
+	void PushMove(char* keys, char* oldkeys, int map[6][14],int mpx,int mpy, int PTX, int PTY);
+	void PushDraw(int map[][14]);
 
 	// constructor & destructor
 	Scene();

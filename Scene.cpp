@@ -13,6 +13,8 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[][14],int mpx,int mpy, i
 		// 更新処理
 		player.Move(keys, oldkeys, map);
 		key.Inputkey(keys, oldkeys, map, PTX, PTY);
+		MAP.sparkReset(map);
+		MAP.spark(map);
 		easing.EasingMove(mpx, mpy);
 		easing.EasingLong(keys, oldkeys);
 		if (this->player.isPlayerAlive == 1) {
@@ -56,8 +58,8 @@ void Scene::PushDraw(int map[][14]) {
 		DrawFormatString(350, 200, GetColor(255, 255, 255), "スタート_スペース");
 	}
 	else if (scene == 1) {
-		player.Draw();
 		MAP.MapDraw(map);
+		player.Draw();
 		easing.EasingDraw();
 	}
 	else if (scene == 2) {
