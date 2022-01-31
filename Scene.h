@@ -15,9 +15,8 @@ private:
 public:
 
 
-	Scene();
 	void PushMove(char* keys, char* oldkeys, int map[][14],int mpx,int mpy, int PTX, int PTY);
-	void PushDraw(int map[][14]);
+	void PushDraw(int map[][14]); 
 
 
 	// constructor & destructor
