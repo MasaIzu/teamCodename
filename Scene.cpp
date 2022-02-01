@@ -46,7 +46,7 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 	//ステージ1勝ったなガハハ
 	else if (scene == 3) {
 		if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
-			scene = 4;
+			scene = 5;
 			player.x = 550; player.y = 103;
 			player.playerPosX = 550; player.playerPosY = 103;
 			player.isGoal = 0; player.isKeyAlive = 1;

@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ChangeSc.cpp" />
     <ClCompile Include="CharaTalk.cpp" />
     <ClCompile Include="Easing.cpp" />
     <ClCompile Include="main.cpp" />
@@ -138,6 +139,7 @@
     <ClCompile Include="Key.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ChangeSc.h" />
     <ClInclude Include="CharaTalk.h" />
     <ClInclude Include="Easing.h" />
     <ClInclude Include="Enum.h" />
