@@ -129,12 +129,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="easing.cpp" />
+    <ClCompile Include="Easing.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Scene.cpp" />
-    <ClCompile Include="key.cpp" />
+    <ClCompile Include="Key.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Easing.h" />

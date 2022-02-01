@@ -48,7 +48,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	{ 1,1,1,1,4,4,4,1,1,1,1,1,1,1 },
 	};
 
-	Map* MAP = new Map(mapInit);
 	Scene* SCENE = new Scene;
 	
 	int x, y;
@@ -75,7 +74,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		// XVˆ—
 		
 	
-		SCENE->PushMove(keys, oldkeys, mapInit, x, y, player->leftTopX, player->leftTopY);
+		SCENE->PushMove(keys, oldkeys, mapInit, x, y);
 
 		
 		// •`‰æˆ—

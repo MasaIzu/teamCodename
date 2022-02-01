@@ -15,7 +15,7 @@ public:
 	Easing easing;
 	Key key;
 
-	void PushMove(char* keys, char* oldkeys, int map[6][14],int mpx,int mpy, int PTX, int PTY);
+	void PushMove(char* keys, char* oldkeys, int map[6][14],int mpx,int mpy);
 	void PushDraw(int map[][14]);
 
 

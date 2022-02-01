@@ -4,13 +4,10 @@
 #include"Enum.h"
 #include"Map.h"
 
-Player::Player() :MAP(MAP.map) {//次のタスク＿マップチップの当たり判定をplayerにする
-	this->x = 550;
-	this->playerPosX = 550;
-	this->y = 103;
-	this->playerPosY = 103;
-	this->r = 5;
-	this->speed = 64;
+Player::Player() {//次のタスク＿マップチップの当たり判定をplayerにする
+	this->x = 550;this->playerPosX = 550;
+	this->y = 103;this->playerPosY = 103;
+	this->r = 5;this->speed = 64;
 
 	this->easing = new Easing;
 

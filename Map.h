@@ -5,25 +5,25 @@
 class Map
 {
 public:
-
 	int block;
+	int block2;
 	int goal;
 	int needle;
 	int kagi;
 	int trap;
-
+	int floor;
 	int map[6][14];
 	MapCount mapCount;
-	
+	int changeNextMap[6][14];
+	int isOnly;
 public:
 
-	// accesser
-	int* getMap();
-	void setMap(int map[6][14]);
 
 	// constructor & distructor
-	Map(int map[6][14]);
+	Map();
 
 	//ŠÖ”
+	void MapKeep(int map[6][14]);
 	void MapDraw(int map[6][14]);
+	void SelectMap(int scene, int map[6][14]);
 };
