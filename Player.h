@@ -7,6 +7,8 @@ class Player
 {
 public:
 
+	int playerGh;
+
 	//ƒƒ“ƒo•Ï”
 	int x;int y;int r;int speed;
 
@@ -33,13 +35,15 @@ public:
 	int keyCount; int onaCount; int playerCount; int trapCount; float trapTimer;
 
 	int playerMapPosX, playerMapPosY;
+
+	int keyTake;
 private:
 	Easing* easing;
 	Map MAP;
 public:
 	//ŠÖ”§ì
 	void Move(char* keys, char* oldkeys, int map[6][14]);
-	void Draw();
+	void Draw(int map[6][14]);
 
 	Player();
 

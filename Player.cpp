@@ -5,11 +5,13 @@
 #include"Map.h"
 
 Player::Player() {//次のタスク＿マップチップの当たり判定をplayerにする
-	this->x = 550;this->playerPosX = 550;
-	this->y = 103;this->playerPosY = 103;
-	this->r = 5;this->speed = 64;
+	this->x = 550; this->playerPosX = 550;
+	this->y = 103; this->playerPosY = 103;
+	this->r = 5; this->speed = 64;
 
 	this->easing = new Easing;
+
+	playerGh = LoadGraph("chara1.png");
 
 	//警告が鬱陶しいので対象変数全部初期化
 	rightTopX = 0; rightTopY = 0; rightBottomX = 0; rightBottomY = 0;
@@ -23,7 +25,7 @@ Player::Player() {//次のタスク＿マップチップの当たり判定をplayerにする
 	playerPosOldX = 0; playerPosOldY = 0; isPush = 0;
 	playerLeftTopX = 0; playerLeftTopY = 0; oldPlayerLeftTopX = 0; oldPlayerLeftTopY = 0;
 	keyCount = 0; onaCount = 0; playerCount = 0; trapTimer = 4.5;
-	playerMapPosX = 0; playerMapPosY = 0;
+	playerMapPosX = 0; playerMapPosY = 0; keyTake = 0;
 }
 
 
@@ -493,6 +495,7 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 
 	//もし当たっているならKEYを消す
 	if (map[playerLeftTopY][playerLeftTopX] == KEY) {
+		keyTake = 1;
 		map[playerLeftTopY][playerLeftTopX] = NONE;
 	}
 
@@ -547,12 +550,13 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 	}
 }
 
-void Player::Draw() {
-	DrawCircle(this->playerPosX - r, this->playerPosY - r, r, GetColor(255, 255, 255), true);
+void Player::Draw(int map[6][14]) {
+	DrawGraph(this->playerPosX - r - 16, this->playerPosY - r - 20, this->playerGh, true);
 
 	DrawFormatString(300, 500, GetColor(255, 255, 255), "%d", onaCount);
-	DrawFormatString(300, 540, GetColor(255, 255, 255), "%d", x);
-	DrawFormatString(300, 560, GetColor(255, 255, 255), "%d", playerPosX);
-	DrawFormatString(300, 580, GetColor(255, 255, 255), "%d", playerCount);
+
+	if (map[playerLeftTopY][playerLeftTopX] == GOAL) {
+		DrawFormatString(300, 500, GetColor(255, 255, 255), "残りの鍵の数:%d", keyCount);
+	}
 }
 

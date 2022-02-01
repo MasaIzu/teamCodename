@@ -16,12 +16,14 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 			mapY = 1;
 			push = true;
 			if (mapX == PTX && mapY == PTY) {
-				
+
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = '1';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '1';
+						break;
+					}
 				}
 			}
 		}
@@ -33,9 +35,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = '2';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '2';
+						break;
+					}
 				}
 			}
 		}
@@ -47,9 +51,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = '3';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '3';
+						break;
+					}
 				}
 			}
 		}
@@ -61,9 +67,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = '4';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '4';
+						break;
+					}
 				}
 			}
 		}
@@ -75,9 +83,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = '5';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '5';
+						break;
+					}
 				}
 			}
 		}
@@ -89,9 +99,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = '6';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '6';
+						break;
+					}
 				}
 			}
 		}
@@ -103,9 +115,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = '7';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '7';
+						break;
+					}
 				}
 			}
 		}
@@ -117,9 +131,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = '8';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '8';
+						break;
+					}
 				}
 			}
 		}
@@ -131,9 +147,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = '9';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '9';
+						break;
+					}
 				}
 			}
 		}
@@ -145,9 +163,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = '0';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '0';
+						break;
+					}
 				}
 			}
 		}
@@ -159,9 +179,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = '-';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '-';
+						break;
+					}
 				}
 			}
 		}
@@ -173,9 +195,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = '^';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '^';
+						break;
+					}
 				}
 			}
 		}
@@ -188,9 +212,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'q';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'q';
+						break;
+					}
 				}
 			}
 		}
@@ -202,9 +228,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'w';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'w';
+						break;
+					}
 				}
 			}
 		}
@@ -216,9 +244,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'e';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'e';
+						break;
+					}
 				}
 			}
 		}
@@ -230,9 +260,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'r';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'r';
+						break;
+					}
 				}
 			}
 		}
@@ -244,9 +276,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 't';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 't';
+						break;
+					}
 				}
 			}
 		}
@@ -258,9 +292,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'y';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'y';
+						break;
+					}
 				}
 			}
 		}
@@ -272,9 +308,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'u';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'u';
+						break;
+					}
 				}
 			}
 		}
@@ -286,9 +324,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'i';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'i';
+						break;
+					}
 				}
 			}
 		}
@@ -300,9 +340,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'o';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'o';
+						break;
+					}
 				}
 			}
 		}
@@ -314,9 +356,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'p';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'p';
+						break;
+					}
 				}
 			}
 		}
@@ -328,9 +372,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = '@';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '@';
+						break;
+					}
 				}
 			}
 		}
@@ -342,9 +388,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = '[';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '[';
+						break;
+					}
 				}
 			}
 		}
@@ -357,9 +405,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'a';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'a';
+						break;
+					}
 				}
 			}
 		}
@@ -371,9 +421,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 's';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 's';
+						break;
+					}
 				}
 			}
 		}
@@ -385,9 +437,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'd';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'd';
+						break;
+					}
 				}
 			}
 		}
@@ -399,9 +453,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'f';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'f';
+						break;
+					}
 				}
 			}
 		}
@@ -413,9 +469,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'g';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'g';
+						break;
+					}
 				}
 			}
 		}
@@ -427,9 +485,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'h';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'h';
+						break;
+					}
 				}
 			}
 		}
@@ -441,9 +501,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'j';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'j';
+						break;
+					}
 				}
 			}
 		}
@@ -455,9 +517,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'k';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'k';
+						break;
+					}
 				}
 			}
 		}
@@ -469,9 +533,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'l';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'l';
+						break;
+					}
 				}
 			}
 		}
@@ -483,9 +549,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = ';';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = ';';
+						break;
+					}
 				}
 			}
 		}
@@ -497,9 +565,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = ':';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = ':';
+						break;
+					}
 				}
 			}
 		}
@@ -511,9 +581,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = ']';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = ']';
+						break;
+					}
 				}
 			}
 		}
@@ -526,9 +598,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'z';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'z';
+						break;
+					}
 				}
 			}
 		}
@@ -540,9 +614,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'x';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'x';
+						break;
+					}
 				}
 			}
 		}
@@ -554,9 +630,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'c';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'c';
+						break;
+					}
 				}
 			}
 		}
@@ -568,9 +646,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'v';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'v';
+						break;
+					}
 				}
 			}
 		}
@@ -582,9 +662,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'b';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'b';
+						break;
+					}
 				}
 			}
 		}
@@ -596,9 +678,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'n';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'n';
+						break;
+					}
 				}
 			}
 		}
@@ -610,9 +694,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'm';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'm';
+						break;
+					}
 				}
 			}
 		}
@@ -624,9 +710,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = ',';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = ',';
+						break;
+					}
 				}
 			}
 		}
@@ -638,9 +726,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = '.';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '.';
+						break;
+					}
 				}
 			}
 		}
@@ -652,9 +742,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = '/';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '/';
+						break;
+					}
 				}
 			}
 		}
@@ -666,9 +758,11 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = '_';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '_';
+						break;
+					}
 				}
 			}
 		}
@@ -680,13 +774,15 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 
 			}
 			else {
-				if (codeName[i] == 0) {
-					codeName[i] = 'S';
-					codeName[i + 1] = 'H';
-					codeName[i + 2] = 'I';
-					codeName[i + 3] = 'F';
-					codeName[i + 4] = 'T';
-					break;
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'S';
+						codeName[i + 1] = 'H';
+						codeName[i + 2] = 'I';
+						codeName[i + 3] = 'F';
+						codeName[i + 4] = 'T';
+						break;
+					}
 				}
 			}
 		}
@@ -710,10 +806,10 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 }
 
 void Key::KeyDraw() {
+	SetFontSize(23);
 	for (int i = 0; i < 256; i++) {
 		if (codeName[i] != 0) {
-			DrawFormatString(350 + 10 * i, 100, GetColor(255, 255, 255), "%c", codeName[i]);
-			
+			DrawFormatString(350 + 15 * i, 400, GetColor(255, 255, 255), "%c", codeName[i]);
 		}
 	}
 }
