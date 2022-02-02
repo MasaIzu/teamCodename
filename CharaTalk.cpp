@@ -69,21 +69,23 @@ void CharaTalk::CharContents(char* keys, char* oldkeys) {
 
 void CharaTalk::CharDraw() {
 	SetFontSize(23);
+	DrawGraph(0, 0, filtaGh, true);
+
 	if (numberOfTimes == 0) {
-		DrawFormatString(350, 400, GetColor(255, 255, 255), "いきなりで悪いが");
-		DrawFormatString(350, 450, GetColor(255, 255, 255), "私のことを導いてはくれないか？");
+		DrawFormatString(150, 200, GetColor(25, 25, 25), "いきなりで悪いが");
+		DrawFormatString(150, 250, GetColor(25, 25, 25), "私のことを導いてはくれないか？");
 	}
 	if (numberOfTimes == 1) {
-		DrawFormatString(350, 400, GetColor(255, 255, 255), "助かるよ、ちょうど");
-		DrawFormatString(350, 450, GetColor(255, 255, 255), "君みたいな俯瞰して見れる視点が欲しくてね");
+		DrawFormatString(150, 200, GetColor(25, 25, 25), "助かるよ、ちょうど");
+		DrawFormatString(150, 250, GetColor(25, 25, 25), "君みたいな俯瞰して見れる視点が欲しくてね");
 	}
 	if (numberOfTimes == 2) {
-		DrawFormatString(350, 400, GetColor(255, 255, 255), "このままだとゴールできない");
-		DrawFormatString(350, 450, GetColor(255, 255, 255), "左シフトを押してくれ、それはキーボードに対応している");
+		DrawFormatString(150, 200, GetColor(25, 25, 25), "このままだとゴールできない");
+		DrawFormatString(150, 250, GetColor(25, 25, 25), "左シフトを押してくれ、それはキーボードに対応している");
 	}
 	if (numberOfTimes == 3) {
-		DrawFormatString(350, 400, GetColor(255, 255, 255), "その対応してるキーの適当な場所を押すと");
-		DrawFormatString(350, 450, GetColor(255, 255, 255), "ゴールに向かうのに必要な壁を作れるんだ");
+		DrawFormatString(150, 200, GetColor(25, 25, 25), "その対応してるキーの適当な場所を押すと");
+		DrawFormatString(150, 250, GetColor(25, 25, 25), "ゴールに向かうのに必要な壁を作れるんだ");
 	}
-	DrawGraph(0, 0, filtaGh, true);
+	DrawRotaGraph(50, 250, 5.0, 0.0, playerGh, true);
 }
