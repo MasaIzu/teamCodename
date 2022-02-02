@@ -13,6 +13,8 @@ private:
 	int isShiftPush;
 	int shiftGh;
 	int sceneChange;
+	int stageSelect;
+
 public:
 	Player player;
 	Map MAP;

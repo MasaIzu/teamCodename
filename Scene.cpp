@@ -5,7 +5,7 @@
 
 Scene::Scene() {
 	scene = 0;
-	isShiftPush = 0; sceneChange = 0;
+	isShiftPush = 0; sceneChange = 0; stageSelect = 0;
 	shiftGh = LoadGraph("taiou.png");
 };
 
@@ -21,7 +21,7 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 	}
 	else if (scene == 1) {
 		charaTalk.CharContents(keys, oldkeys);
-		if ( changeSc.isChangeScene == 1 ) {
+		if (changeSc.isChangeScene == 1) {
 			scene = 2;
 			changeSc.isChangeScene = 0;
 		}
@@ -31,14 +31,12 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 		}
 	}
 
-	//ステージ1
+	//ステージ0(チュートリアル)
 	else if (scene == 2) {
 		if (sceneChange == 0) {
 			if (charaTalk.goGame == 0) {
 				player.Move(keys, oldkeys, map);
 				key.Inputkey(keys, oldkeys, map, player.playerLeftTopX, player.playerLeftTopY);
-				MAP.sparkReset(map);
-				MAP.spark(map);
 				easing.EasingMove(mpx, mpy);
 				easing.EasingLong(keys, oldkeys);
 			}
@@ -56,18 +54,66 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 				scene = 3;
 			}
 		}
-		else if (sceneChange == 1) {
-			changeSc.Update(scene);
-		}
+
+		stageSelect = 0;
 	}
-	//ステージ1勝ったなガハハ
+	//ステージたち勝ったなガハハ
 	else if (scene == 3) {
 		if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
-			scene = 5;
-			player.x = 550; player.y = 103;
-			player.playerPosX = 550; player.playerPosY = 103;
-			player.isGoal = 0; player.isKeyAlive = 1;
-
+			if (stageSelect == 0) {//ステージ0(チュートリアル)
+				scene = 5;
+				player.x = 550; player.y = 103;
+				player.playerPosX = 550; player.playerPosY = 103;
+				player.isGoal = 0; player.isKeyAlive = 1;
+				for (int i = 0; i < 100; i++) {
+					key.codeName[i] = 0;
+				}
+			}
+			else if (stageSelect == 1) {//ステージ1
+				scene = 6;
+				player.x = 550; player.y = 103;
+				player.playerPosX = 550; player.playerPosY = 103;
+				player.isGoal = 0; player.isKeyAlive = 1;
+				for (int i = 0; i < 100; i++) {
+					key.codeName[i] = 0;
+				}
+			}
+			else if (stageSelect == 2) {//ステージ2
+				scene = 7;
+				player.x = 550; player.y = 103;
+				player.playerPosX = 550; player.playerPosY = 103;
+				player.isGoal = 0; player.isKeyAlive = 1;
+				for (int i = 0; i < 100; i++) {
+					key.codeName[i] = 0;
+				}
+			}
+			else if (stageSelect == 3) {//ステージ3
+				scene = 8;
+				player.x = 550; player.y = 103;
+				player.playerPosX = 550; player.playerPosY = 103;
+				player.isGoal = 0; player.isKeyAlive = 1;
+				for (int i = 0; i < 100; i++) {
+					key.codeName[i] = 0;
+				}
+			}
+			else if (stageSelect == 4) {//ステージ4
+				scene = 9;
+				player.x = 416; player.y = 96;
+				player.playerPosX = 416; player.playerPosY = 96;
+				player.isGoal = 0; player.isKeyAlive = 1;
+				for (int i = 0; i < 100; i++) {
+					key.codeName[i] = 0;
+				}
+			}
+			else if (stageSelect == 5) {//ステージ5
+				scene = 10;
+				player.x = 550; player.y = 103;
+				player.playerPosX = 550; player.playerPosY = 103;
+				player.isGoal = 0; player.isKeyAlive = 1;
+				for (int i = 0; i < 100; i++) {
+					key.codeName[i] = 0;
+				}
+			}
 			MAP.SelectMap(scene, map);
 			MAP.MapKeep(map);
 		}
@@ -75,15 +121,66 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 	//死んだらここに行き着く
 	else if (scene == 4) {
 		if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
-			scene = 0;
-			player.x = 550; player.y = 103;
-			player.playerPosX = 550; player.playerPosY = 103;
-			player.isGoal = 0; player.isKeyAlive = 1;
-
-
+			if (stageSelect == 0) {
+				scene = 2;
+				player.x = 550; player.y = 103;
+				player.playerPosX = 550; player.playerPosY = 103;
+				player.isGoal = 0; player.isKeyAlive = 1;
+				for (int i = 0; i < 100; i++) {
+					key.codeName[i] = 0;
+				}
+			}
+			else if (stageSelect == 1) {
+				scene = 5;
+				player.x = 550; player.y = 103;
+				player.playerPosX = 550; player.playerPosY = 103;
+				player.isGoal = 0; player.isKeyAlive = 1;
+				for (int i = 0; i < 100; i++) {
+					key.codeName[i] = 0;
+				}
+			}
+			else if (stageSelect == 2) {
+				scene = 6;
+				player.x = 550; player.y = 103;
+				player.playerPosX = 550; player.playerPosY = 103;
+				player.isGoal = 0; player.isKeyAlive = 1;
+				for (int i = 0; i < 100; i++) {
+					key.codeName[i] = 0;
+				}
+			}
+			else if (stageSelect == 3) {
+				scene = 7;
+				player.x = 550; player.y = 103;
+				player.playerPosX = 550; player.playerPosY = 103;
+				player.isGoal = 0; player.isKeyAlive = 1;
+				for (int i = 0; i < 100; i++) {
+					key.codeName[i] = 0;
+				}
+			}
+			else if (stageSelect == 4) {
+				scene = 8;
+				player.x = 550; player.y = 103;
+				player.playerPosX = 550; player.playerPosY = 103;
+				player.isGoal = 0; player.isKeyAlive = 1;
+				for (int i = 0; i < 100; i++) {
+					key.codeName[i] = 0;
+				}
+			}
+			else if (stageSelect == 5) {
+				scene = 9;
+				player.x = 416; player.y = 96;
+				player.playerPosX = 416; player.playerPosY = 96;
+				player.isGoal = 0; player.isKeyAlive = 1;
+				for (int i = 0; i < 100; i++) {
+					key.codeName[i] = 0;
+				}
+			}
+			MAP.SelectMap(scene, map);
+			MAP.MapKeep(map);
+			
 		}
 	}
-	//ステージ2
+	//ステージ1
 	else if (scene == 5) {
 		player.Move(keys, oldkeys, map);
 		key.Inputkey(keys, oldkeys, map, player.playerLeftTopX, player.playerLeftTopY);
@@ -91,10 +188,62 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 		easing.EasingLong(keys, oldkeys);
 
 		if (player.isGoal == 1) {
-			scene = 2;
+			scene = 3;
 		}
+		stageSelect = 1;
 	}
+	//ステージ2
+	else if (scene == 6) {
+		player.Move(keys, oldkeys, map);
+		key.Inputkey(keys, oldkeys, map, player.playerLeftTopX, player.playerLeftTopY);
+		easing.EasingMove(mpx, mpy);
+		easing.EasingLong(keys, oldkeys);
 
+		if (player.isGoal == 1) {
+			scene = 3;
+		}
+		stageSelect = 2;
+	}
+	//ステージ3
+	else if (scene == 7) {
+		player.Move(keys, oldkeys, map);
+		key.Inputkey(keys, oldkeys, map, player.playerLeftTopX, player.playerLeftTopY);
+		easing.EasingMove(mpx, mpy);
+		easing.EasingLong(keys, oldkeys);
+
+		if (player.isGoal == 1) {
+			scene = 3;
+		}
+		stageSelect = 3;
+	}
+	//ステージ4
+	else if (scene == 8) {
+		player.Move(keys, oldkeys, map);
+		key.Inputkey(keys, oldkeys, map, player.playerLeftTopX, player.playerLeftTopY);
+		MAP.sparkReset(map);
+		MAP.spark(map);
+		easing.EasingMove(mpx, mpy);
+		easing.EasingLong(keys, oldkeys);
+
+		if (player.isGoal == 1) {
+			scene = 3;
+		}
+		stageSelect = 4;
+	}
+	//ステージ5
+	else if (scene == 9) {
+		player.Move(keys, oldkeys, map);
+		key.Inputkey(keys, oldkeys, map, player.playerLeftTopX, player.playerLeftTopY);
+		MAP.sparkReset(map);
+		MAP.spark(map);
+		easing.EasingMove(mpx, mpy);
+		easing.EasingLong(keys, oldkeys);
+
+		if (player.isGoal == 1) {
+			scene = 3;
+		}
+		stageSelect = 5;
+	}
 
 	if (player.isPlayerAlive == 0) {
 		scene = 4;
@@ -105,25 +254,28 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 			}
 		}
 	}
-	if (keys[KEY_INPUT_LSHIFT] == 1 && oldkeys[KEY_INPUT_LSHIFT] == 1) {
-		isShiftPush = 1;
-	}
-	else {
-		isShiftPush = 0;
+	if (keys[KEY_INPUT_LSHIFT] == 1 && oldkeys[KEY_INPUT_LSHIFT] == 0) {
+		if (isShiftPush == 0) {
+			isShiftPush = 1;
+		}
+		else {
+			isShiftPush = 0;
+		}
 	}
 
-	if ( sceneChange == 1 ) {
+
+	if (sceneChange == 1) {
 		changeSc.isChangeSc = 1;
 		sceneChange = 0;
 	}
-	changeSc.Update (scene);
+	changeSc.Update();
 
 }
 
 void Scene::PushDraw(int map[][14]) {
 	// 描画処理
 
-	
+
 
 	if (scene == 0) {
 		DrawFormatString(350, 200, GetColor(255, 255, 255), "スタート_スペース");
@@ -131,6 +283,7 @@ void Scene::PushDraw(int map[][14]) {
 	else if (scene == 1) {
 		charaTalk.CharDraw();
 	}
+	//ステージ0
 	else if (scene == 2) {
 		if (isShiftPush == 1) {
 			DrawGraph(0, 0, shiftGh, true);
@@ -143,7 +296,7 @@ void Scene::PushDraw(int map[][14]) {
 		if (player.keyTake == 1) {
 			charaTalk.CharDraw();
 		}
-		
+
 	}
 	else if (scene == 3) {
 		DrawFormatString(100, 400, GetColor(255, 255, 255), "あなたが打ったキー:");
@@ -155,17 +308,55 @@ void Scene::PushDraw(int map[][14]) {
 		DrawFormatString(350, 200, GetColor(255, 255, 255), "ゆ～だーい");
 		DrawFormatString(350, 240, GetColor(255, 255, 255), "戻るにはスペース");
 	}
+	//ステージ1
 	else if (scene == 5) {
+		DrawFormatString(100, 400, GetColor(255, 255, 255), "あなたが打ったキー:");
 		if (isShiftPush == 1) {
 			DrawGraph(0, 0, shiftGh, true);
 		}
 		MAP.MapDraw(map);
 		easing.EasingDraw();
 		player.Draw(map);
-
+		key.KeyDraw();
 	}
-
-	changeSc.Draw ();
+	//ステージ2
+	else if (scene == 6) {
+		if (isShiftPush == 1) {
+			DrawGraph(0, 0, shiftGh, true);
+		}
+		MAP.MapDraw(map);
+		easing.EasingDraw();
+		player.Draw(map);
+	}
+	//ステージ3
+	else if (scene == 7) {
+		if (isShiftPush == 1) {
+			DrawGraph(0, 0, shiftGh, true);
+		}
+		MAP.MapDraw(map);
+		easing.EasingDraw();
+		player.Draw(map);
+	}
+	//ステージ4
+	else if (scene == 8) {
+		if (isShiftPush == 1) {
+			DrawGraph(0, 0, shiftGh, true);
+		}
+		MAP.MapDraw(map);
+		easing.EasingDraw();
+		player.Draw(map);
+	}
+	//ステージ5
+	else if (scene == 9) {
+		if (isShiftPush == 1) {
+			DrawGraph(0, 0, shiftGh, true);
+		}
+		MAP.MapDraw(map);
+		easing.EasingDraw();
+		player.Draw(map);
+	}
+	
+	changeSc.Draw();
 }
 
 

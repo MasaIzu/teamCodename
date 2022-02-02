@@ -38,7 +38,7 @@ ChangeSc::ChangeSc () {
 
 //changeは移動量。baseは最初の位置。durationは移動時間で、timeが現在の経過時間
 
-void ChangeSc::Update (int scene) {
+void ChangeSc::Update () {
 	if ( isChangeSc == 1 ) {//アニメーション開始フェーズ
 		if ( faze == 2 ) {
 			time--;
