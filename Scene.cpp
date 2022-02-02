@@ -10,6 +10,8 @@ Scene::Scene() {
 };
 
 void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy) {
+
+
 	if (scene == 0) {
 		MAP.SelectMap(scene, map);
 		MAP.MapKeep(map);
@@ -19,12 +21,18 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 	}
 	else if (scene == 1) {
 		charaTalk.CharContents(keys, oldkeys);
-		if (charaTalk.goGame == 1) {
+		if ( changeSc.isChangeScene == 1 ) {
 			scene = 2;
+			changeSc.isChangeScene = 0;
+		}
+		if (charaTalk.goGame == 1) {
+			
+			
 			charaTalk.goGame = 0;
 			sceneChange = 1;/////Sceneの切り替えの時にうごかしたい////////////////////////////
 		}
 	}
+
 	//ステージ1
 	else if (scene == 2) {
 		if (sceneChange == 0) {
@@ -102,10 +110,19 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 	else {
 		isShiftPush = 0;
 	}
+
+	if ( sceneChange == 1 ) {
+		changeSc.isChangeSc = 1;
+		sceneChange = 0;
+	}
+	changeSc.Update (scene);
+
 }
 
 void Scene::PushDraw(int map[][14]) {
 	// 描画処理
+
+	
 
 	if (scene == 0) {
 		DrawFormatString(350, 200, GetColor(255, 255, 255), "スタート_スペース");
@@ -125,7 +142,7 @@ void Scene::PushDraw(int map[][14]) {
 		if (player.keyTake == 1) {
 			charaTalk.CharDraw();
 		}
-		changeSc.Draw();
+		
 	}
 	else if (scene == 3) {
 		DrawFormatString(100, 400, GetColor(255, 255, 255), "あなたが打ったキー:");
@@ -146,6 +163,8 @@ void Scene::PushDraw(int map[][14]) {
 		player.Draw(map);
 
 	}
+
+	changeSc.Draw ();
 }
 
 

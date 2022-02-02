@@ -15,6 +15,7 @@ public:
 	int waitTime;
 	int maxTime;
 	int maxtime2;
+	int isChangeScene;
 
 	float randomX;	//シェイクで使います。ごめんなさいごめんなさいごめんなさい
 	float randomY;

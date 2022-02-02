@@ -4,7 +4,7 @@
 ChangeSc::ChangeSc () {
 
 	this->faze = 0;
-	this->isChangeSc = 0;
+	this->isChangeSc = 0;	//チェンジスクリーンのフラグ
 	this->topP.x = 0;
 	this->topP.y = -300;
 	this->botP.x = 0;
@@ -22,6 +22,7 @@ ChangeSc::ChangeSc () {
 	this->strP.x = 0;
 	this->strP.y = 0;
 	this->waitTime = 0;
+	this->isChangeScene = 0;
 
 	this->changeScAnm[6] = {};
 	LoadDivGraph ("changeScAnm.png",
@@ -93,6 +94,7 @@ void ChangeSc::Update (int scene) {
 					waitTime = 0;
 					time = 0;
 					time2 = -10;
+					isChangeScene = 1;
 				}
 			}
 
@@ -104,11 +106,12 @@ void ChangeSc::Update (int scene) {
 			}
 			else {
 				waitTime++;
-				if ( waitTime > 20 ) {
+				if ( waitTime > 3 ) {
 					faze = 5;
 					waitTime = 0;
 					time = 0;
 					time2 = 0;
+					
 				}
 			}
 
@@ -120,6 +123,17 @@ void ChangeSc::Update (int scene) {
 				this->topP.y = easing.OutQuad (-300, 0, maxTime, time);
 				this->botP.y = easing.OutQuad (300, 0, maxTime, time);
 			}
+			else {
+				time = 0;
+				time2 = -10;
+				isChangeSc = 0;
+				waitTime = 0;
+				faze = 0;
+			}
+		}
+		else {
+			isChangeSc = 0;
+			isChangeScene = 0;
 		}
 
 	}
