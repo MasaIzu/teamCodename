@@ -24,15 +24,15 @@ void CharaTalk::CharContents(char* keys, char* oldkeys) {
 			numberOfTimes = 2;
 		}
 	}
-	else if (numberOfTimes == 2) {
-		if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
-			numberOfTimes = 3;
-		}
-	}
 	else if (numberOfTimes == 3) {
 		if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
-			goGame = 0;
 			numberOfTimes = 4;
+		}
+	}
+	else if (numberOfTimes == 4) {
+		if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
+			goGame = 0;
+			numberOfTimes = 5;
 		}
 	}
 }
@@ -79,11 +79,11 @@ void CharaTalk::CharDraw() {
 		DrawFormatString(150, 200, GetColor(25, 25, 25), "助かるよ、ちょうど");
 		DrawFormatString(150, 250, GetColor(25, 25, 25), "君みたいな俯瞰して見れる視点が欲しくてね");
 	}
-	if (numberOfTimes == 2) {
+	if (numberOfTimes == 3) {
 		DrawFormatString(150, 200, GetColor(25, 25, 25), "このままだとゴールできない");
 		DrawFormatString(150, 250, GetColor(25, 25, 25), "左シフトを押してくれ、それはキーボードに対応している");
 	}
-	if (numberOfTimes == 3) {
+	if (numberOfTimes == 4) {
 		DrawFormatString(150, 200, GetColor(25, 25, 25), "その対応してるキーの適当な場所を押すと");
 		DrawFormatString(150, 250, GetColor(25, 25, 25), "ゴールに向かうのに必要な壁を作れるんだ");
 	}

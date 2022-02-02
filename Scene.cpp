@@ -26,8 +26,6 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 			changeSc.isChangeScene = 0;
 		}
 		if (charaTalk.goGame == 1) {
-			
-			
 			charaTalk.goGame = 0;
 			sceneChange = 1;/////Scene‚ÌØ‚è‘Ö‚¦‚Ì‚É‚¤‚²‚©‚µ‚½‚¢////////////////////////////
 		}
@@ -46,6 +44,9 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 			}
 			if (player.keyTake == 1) {
 				charaTalk.goGame = 1;
+				if (charaTalk.numberOfTimes == 2) {
+					charaTalk.numberOfTimes = 3;
+				}
 				charaTalk.CharContents(keys, oldkeys);
 				if (charaTalk.goGame == 0) {
 					player.keyTake = 0;
