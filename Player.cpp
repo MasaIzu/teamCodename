@@ -665,8 +665,7 @@ void Player::Draw (int map[6][14]) {
 
 
 
-
-	DrawFormatString (300, 500, GetColor (255, 255, 255), "%d", onaCount);
+	
 
 	if ( map[playerLeftTopY][playerLeftTopX] == GOAL ) {
 		DrawFormatString (300, 500, GetColor (255, 255, 255), "c‚è‚ÌŒ®‚Ì”:%d", keyCount);

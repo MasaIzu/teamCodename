@@ -16,13 +16,19 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 		MAP.SelectMap(scene, map);
 		MAP.MapKeep(map);
 		easing.selectScene = 0;
-		if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
+		if ( changeSc.titleFaze >= 2 ) {
+			keys[KEY_INPUT_SPACE] = 0;
+			oldkeys[KEY_INPUT_SPACE] = 0;
+
+		}else if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
 			scene = 1;
-			changeSc.titleFaze += 1;
+			changeSc.titleFaze = 2;
 		}
 	}
 	else if (scene == 1) {
-		charaTalk.CharContents(keys, oldkeys);
+		if (changeSc.titleFaze == 0 ) {
+			charaTalk.CharContents (keys, oldkeys);
+		}
 		if (changeSc.isChangeScene == 1) {
 			scene = 2;
 			changeSc.isChangeScene = 0;
@@ -34,14 +40,15 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 	}
 
 	//ステージ0(チュートリアル)
-	else if (scene == 2) {
-		if (sceneChange == 0) {
+	else if (scene == 2 ) {
+		if (sceneChange == 0 ) {
 			if (charaTalk.goGame == 0) {
 				player.Move(keys, oldkeys, map);
 				key.Inputkey(keys, oldkeys, map, player.playerLeftTopX, player.playerLeftTopY);
 				easing.EasingMove(mpx, mpy);
 				easing.EasingLong(keys, oldkeys);
 			}
+
 			if (player.keyTake == 1) {
 				charaTalk.goGame = 1;
 				if (charaTalk.numberOfTimes == 2) {
@@ -53,8 +60,13 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 				}
 			}
 			if (player.isGoal == 1) {
-				scene = 3;
+				sceneChange = 1;
 			}
+			if ( changeSc.isChangeScene == 1 ) {
+				scene = 3;
+				changeSc.isChangeScene = 0;
+			}
+			
 		}
 
 		stageSelect = 0;
@@ -194,6 +206,8 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 
 		}
 	}
+
+
 	//ステージ1
 	else if (scene == 5) {
 		easing.selectScene = 0;
@@ -224,6 +238,7 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 			scene = 3;
 		}
 		stageSelect = 3;
+
 	}
 	//ステージ4
 	else if (scene == 8) {
@@ -339,11 +354,17 @@ void Scene::PushDraw(int map[][14]) {
 		DrawFormatString(100, 400, GetColor(255, 255, 255), "あなたが打ったキー:");
 		key.KeyDraw();
 		DrawFormatString(350, 200, GetColor(255, 255, 255), "ゴール！やったね！");
-		DrawFormatString(350, 240, GetColor(255, 255, 255), "戻るにはスペース");
+		DrawFormatString(350, 240, GetColor(255, 255, 255), "進むにはスペース");
+		SetFontSize (12);
+		DrawFormatString (826, 655, GetColor (255, 255, 255), "SPACE▼");
+		SetFontSize (23);
 	}
 	else if (scene == 4) {
 		DrawFormatString(350, 200, GetColor(255, 255, 255), "ゆ～だーい");
 		DrawFormatString(350, 240, GetColor(255, 255, 255), "戻るにはスペース");
+		SetFontSize (12);
+		DrawFormatString (826, 655, GetColor (255, 255, 255), "SPACE▼");
+		SetFontSize (23);
 	}
 	//ステージ1
 	else if (scene == 5) {
@@ -354,6 +375,9 @@ void Scene::PushDraw(int map[][14]) {
 		MAP.MapDraw(map);
 		player.Draw(map);
 		key.KeyDraw();
+		SetFontSize (12);
+		DrawFormatString (826, 655, GetColor (255, 255, 255), "SPACE▼");
+		SetFontSize (23);
 	}
 	//ステージ2
 	else if (scene == 6) {
@@ -393,6 +417,17 @@ void Scene::PushDraw(int map[][14]) {
 		easing.EasingDraw();
 	}
 
+	if ( scene == 2 ) {
+		if ( 5 - player.onaCount >= 0 ) {
+			DrawFormatString (20, 480, GetColor (255, 255, 255), "クリアまでの歩数%d", 5 - player.onaCount);
+		}
+		else {
+			DrawFormatString (20, 480, GetColor (255, 30, 30), "クリアまでの歩数-%d",player.onaCount - 5);
+		}
+	}
+
+
+	DrawFormatString (10, 10, 0xffffff, "scene%d", scene);
 	changeSc.Draw();
 }
 
