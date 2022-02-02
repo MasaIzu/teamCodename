@@ -27,7 +27,7 @@ public:
 
 	Easing easing;	//包含
 
-	void Update ();	//毎フレームの更新
+	void Update (int scene);	//毎フレームの更新
 	void Draw ();	//描画
 
 	ChangeSc ();	//コンストラクタ

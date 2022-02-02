@@ -510,6 +510,16 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 	if (map[playerLeftTopY][playerLeftTopX] == TRAP) {
 		isPlayerAlive = 0;
 	}
+	//“dŒ‚‚É“–‚½‚é‚Æ€‚Ê
+	if (map[playerLeftTopY][playerLeftTopX] == ELEC1) {
+		isPlayerAlive = 0;
+	}
+	if (map[playerLeftTopY][playerLeftTopX] == ELEC2) {
+		isPlayerAlive = 0;
+	}
+	if (map[playerLeftTopY][playerLeftTopX] == ELEC3) {
+		isPlayerAlive = 0;
+	}
 
 	//‚à‚µ“–‚½‚Á‚Ä‚¢‚é‚È‚çplayer‚ÍƒS[ƒ‹‚·‚é
 	if (map[playerLeftTopY][playerLeftTopX] == GOAL) {

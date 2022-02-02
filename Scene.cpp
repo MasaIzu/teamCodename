@@ -5,7 +5,7 @@
 
 Scene::Scene() {
 	scene = 0;
-	isShiftPush = 0;
+	isShiftPush = 0; sceneChange = 0;
 	shiftGh = LoadGraph("taiou.png");
 };
 
@@ -22,25 +22,33 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 		if (charaTalk.goGame == 1) {
 			scene = 2;
 			charaTalk.goGame = 0;
+			sceneChange = 1;/////Sceneの切り替えの時にうごかしたい////////////////////////////
 		}
 	}
 	//ステージ1
 	else if (scene == 2) {
-		if (charaTalk.goGame == 0) {
-			player.Move(keys, oldkeys, map);
-			key.Inputkey(keys, oldkeys, map, player.playerLeftTopX, player.playerLeftTopY);
-			easing.EasingMove(mpx, mpy);
-			easing.EasingLong(keys, oldkeys);
-		}
-		if (player.keyTake == 1) {
-			charaTalk.goGame = 1;
-			charaTalk.CharContents(keys, oldkeys);
+		if (sceneChange == 0) {
 			if (charaTalk.goGame == 0) {
-				player.keyTake = 0;
+				player.Move(keys, oldkeys, map);
+				key.Inputkey(keys, oldkeys, map, player.playerLeftTopX, player.playerLeftTopY);
+				MAP.sparkReset(map);
+				MAP.spark(map);
+				easing.EasingMove(mpx, mpy);
+				easing.EasingLong(keys, oldkeys);
+			}
+			if (player.keyTake == 1) {
+				charaTalk.goGame = 1;
+				charaTalk.CharContents(keys, oldkeys);
+				if (charaTalk.goGame == 0) {
+					player.keyTake = 0;
+				}
+			}
+			if (player.isGoal == 1) {
+				scene = 3;
 			}
 		}
-		if (player.isGoal == 1) {
-			scene = 3;
+		else if (sceneChange == 1) {
+			changeSc.Update(scene);
 		}
 	}
 	//ステージ1勝ったなガハハ
@@ -117,6 +125,7 @@ void Scene::PushDraw(int map[][14]) {
 		if (player.keyTake == 1) {
 			charaTalk.CharDraw();
 		}
+		changeSc.Draw();
 	}
 	else if (scene == 3) {
 		DrawFormatString(100, 400, GetColor(255, 255, 255), "あなたが打ったキー:");

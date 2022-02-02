@@ -792,7 +792,7 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 		if (mapX == PTX && mapY == PTY) {
 			push = false;
 		}
-		else if (map[mapY][mapX] == 0) {
+		else if (map[mapY][mapX] == 0 || map[mapY][mapX] >= 12) {
 			map[mapY][mapX] = 2;
 		}
 		else if (map[mapY][mapX] == 2) {

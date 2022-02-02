@@ -16,8 +16,13 @@ public:
 	MapCount mapCount;
 	int changeNextMap[6][14];
 	int isOnly;
+	int check[6] = { 0 };
+	int epower[4] = { 0 };
+	int elec[3] = { 3 };
 public:
 
+	void sparkReset(int map[6][14]);
+	void spark(int map[6][14]);
 
 	// constructor & distructor
 	Map();

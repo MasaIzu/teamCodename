@@ -23,12 +23,12 @@ ChangeSc::ChangeSc () {
 	this->strP.y = 0;
 	this->waitTime = 0;
 
-	this->changeScAnm[7] = {};
+	this->changeScAnm[6] = {};
 	LoadDivGraph ("changeScAnm.png",
 				  7, 7, 1, 896, 700,
 				  changeScAnm);
 
-	this->strAnm[6] = {};
+	this->strAnm[5] = {};
 	LoadDivGraph ("strAnm.png",
 				  6, 6, 1, 496, 152,
 				  strAnm);
@@ -37,7 +37,7 @@ ChangeSc::ChangeSc () {
 
 //changeは移動量。baseは最初の位置。durationは移動時間で、timeが現在の経過時間
 
-void ChangeSc::Update () {
+void ChangeSc::Update (int scene) {
 	if ( isChangeSc == 1 ) {//アニメーション開始フェーズ
 		if ( faze == 2 ) {
 			time--;
@@ -48,7 +48,6 @@ void ChangeSc::Update () {
 			}
 			time2++;
 		}
-
 
 		if ( faze == 0 ) {	//初期化フェーズ
 			faze = 1;
