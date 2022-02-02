@@ -12,13 +12,12 @@ Scene::Scene() {
 
 void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy) {
 
-
 	if (scene == 0) {
 		MAP.SelectMap(scene, map);
 		MAP.MapKeep(map);
 		easing.selectScene = 0;
 		if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
-			scene = 9;
+			scene = 1;
 			changeSc.titleFaze += 1;
 		}
 	}
@@ -30,7 +29,7 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 		}
 		if (charaTalk.goGame == 1) {
 			charaTalk.goGame = 0;
-			sceneChange = 1;/////Sceneの切り替えの時にうごかしたい////////////////////////////
+			sceneChange = 1;
 		}
 	}
 
@@ -200,8 +199,6 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 		easing.selectScene = 0;
 		player.Move(keys, oldkeys, map);
 		key.Inputkey(keys, oldkeys, map, player.playerLeftTopX, player.playerLeftTopY);
-		easing.EasingMove(mpx, mpy);
-		easing.EasingLong(keys, oldkeys);
 
 		if (player.isGoal == 1) {
 			scene = 3;
@@ -212,8 +209,6 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 	else if (scene == 6) {
 		player.Move(keys, oldkeys, map);
 		key.Inputkey(keys, oldkeys, map, player.playerLeftTopX, player.playerLeftTopY);
-		easing.EasingMove(mpx, mpy);
-		easing.EasingLong(keys, oldkeys);
 
 		if (player.isGoal == 1) {
 			scene = 3;
@@ -224,8 +219,6 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 	else if (scene == 7) {
 		player.Move(keys, oldkeys, map);
 		key.Inputkey(keys, oldkeys, map, player.playerLeftTopX, player.playerLeftTopY);
-		easing.EasingMove(mpx, mpy);
-		easing.EasingLong(keys, oldkeys);
 
 		if (player.isGoal == 1) {
 			scene = 3;
@@ -238,8 +231,6 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 		key.Inputkey(keys, oldkeys, map, player.playerLeftTopX, player.playerLeftTopY);
 		MAP.sparkReset(map);
 		MAP.spark(map);
-		easing.EasingMove(mpx, mpy);
-		easing.EasingLong(keys, oldkeys);
 
 		if (player.isGoal == 1) {
 			scene = 3;
@@ -252,8 +243,6 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 		key.Inputkey(keys, oldkeys, map, player.playerLeftTopX, player.playerLeftTopY);
 		MAP.sparkReset(map);
 		MAP.spark(map);
-		easing.EasingMove(mpx, mpy);
-		easing.EasingLong(keys, oldkeys);
 
 		if (player.isGoal == 1) {
 			scene = 3;
@@ -263,8 +252,7 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 	//CLEARシーン
 	else if (scene == 10) {
 		easing.isThx = 1;
-		easing.EasingMove(mpx, mpy);
-		easing.EasingLong(keys, oldkeys);
+	
 		if (easing.selectScene == 1) {
 			scene = 0;
 			changeSc.faze = 0;
@@ -340,7 +328,6 @@ void Scene::PushDraw(int map[][14]) {
 		}
 		DrawFormatString(100, 400, GetColor(255, 255, 255), "あなたが打ったキー:");
 		MAP.MapDraw(map);
-		easing.EasingDraw();
 		player.Draw(map);
 		key.KeyDraw();
 		if (player.keyTake == 1) {
@@ -365,7 +352,6 @@ void Scene::PushDraw(int map[][14]) {
 			DrawGraph(0, 0, shiftGh, true);
 		}
 		MAP.MapDraw(map);
-		easing.EasingDraw();
 		player.Draw(map);
 		key.KeyDraw();
 	}
@@ -375,7 +361,6 @@ void Scene::PushDraw(int map[][14]) {
 			DrawGraph(0, 0, shiftGh, true);
 		}
 		MAP.MapDraw(map);
-		easing.EasingDraw();
 		player.Draw(map);
 	}
 	//ステージ3
@@ -384,7 +369,6 @@ void Scene::PushDraw(int map[][14]) {
 			DrawGraph(0, 0, shiftGh, true);
 		}
 		MAP.MapDraw(map);
-		easing.EasingDraw();
 		player.Draw(map);
 	}
 	//ステージ4
@@ -393,7 +377,6 @@ void Scene::PushDraw(int map[][14]) {
 			DrawGraph(0, 0, shiftGh, true);
 		}
 		MAP.MapDraw(map);
-		easing.EasingDraw();
 		player.Draw(map);
 	}
 	//ステージ5
@@ -402,7 +385,6 @@ void Scene::PushDraw(int map[][14]) {
 			DrawGraph(0, 0, shiftGh, true);
 		}
 		MAP.MapDraw(map);
-		easing.EasingDraw();
 		player.Draw(map);
 	}
 	//goal
