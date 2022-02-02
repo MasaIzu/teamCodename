@@ -4,6 +4,11 @@
 class Easing
 {
 public:
+
+	double InQuad (double change, double base, double duration, double time);
+	double OutQuad (double change, double base, double duration, double time);
+	double InOutQuad (double change, double base, double duration, double time);
+public:
 	// 画像などのリソースデータの変数宣言と読み込み
 	int nextGh;
 	int MenuGh ;

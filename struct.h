@@ -1,7 +1,13 @@
 #pragma once
 
-typedef struct 
+struct MapCount
 {
 	int x;
 	int y;
-}MapCount;
+};
+
+typedef struct Pos
+{
+	int x;
+	int y;
+};
