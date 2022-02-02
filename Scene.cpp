@@ -215,7 +215,12 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 		key.Inputkey(keys, oldkeys, map, player.playerLeftTopX, player.playerLeftTopY);
 
 		if (player.isGoal == 1) {
-			scene = 3;
+			sceneChange = 1;
+			
+		}
+		if ( changeSc.isChangeScene == 1 ) {
+				scene = 3;
+				changeSc.isChangeScene = 0;
 		}
 		stageSelect = 1;
 	}
@@ -224,8 +229,13 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 		player.Move(keys, oldkeys, map);
 		key.Inputkey(keys, oldkeys, map, player.playerLeftTopX, player.playerLeftTopY);
 
-		if (player.isGoal == 1) {
+		if ( player.isGoal == 1 ) {
+			sceneChange = 1;
+
+		}
+		if ( changeSc.isChangeScene == 1 ) {
 			scene = 3;
+			changeSc.isChangeScene = 0;
 		}
 		stageSelect = 2;
 	}
@@ -234,8 +244,13 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 		player.Move(keys, oldkeys, map);
 		key.Inputkey(keys, oldkeys, map, player.playerLeftTopX, player.playerLeftTopY);
 
-		if (player.isGoal == 1) {
+		if ( player.isGoal == 1 ) {
+			sceneChange = 1;
+
+		}
+		if ( changeSc.isChangeScene == 1 ) {
 			scene = 3;
+			changeSc.isChangeScene = 0;
 		}
 		stageSelect = 3;
 
@@ -247,8 +262,13 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 		MAP.sparkReset(map);
 		MAP.spark(map);
 
-		if (player.isGoal == 1) {
+		if ( player.isGoal == 1 ) {
+			sceneChange = 1;
+
+		}
+		if ( changeSc.isChangeScene == 1 ) {
 			scene = 3;
+			changeSc.isChangeScene = 0;
 		}
 		stageSelect = 4;
 	}
@@ -259,8 +279,13 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 		MAP.sparkReset(map);
 		MAP.spark(map);
 
-		if (player.isGoal == 1) {
+		if ( player.isGoal == 1 ) {
+			sceneChange = 1;
+
+		}
+		if ( changeSc.isChangeScene == 1 ) {
 			scene = 3;
+			changeSc.isChangeScene = 0;
 		}
 		stageSelect = 5;
 	}
@@ -423,6 +448,24 @@ void Scene::PushDraw(int map[][14]) {
 		}
 		else {
 			DrawFormatString (20, 480, GetColor (255, 30, 30), "クリアまでの歩数-%d",player.onaCount - 5);
+		}
+	}
+	if ( scene == 5 ) {
+		DrawFormatString (20, 420, GetColor (255, 30, 30), "ヒント:【鍵】");
+		if ( 7 - player.onaCount >= 0 ) {
+			DrawFormatString (20, 480, GetColor (255, 255, 255), "クリアまでの歩数%d", 7 - player.onaCount);
+		}
+		else {
+			DrawFormatString (20, 480, GetColor (255, 30, 30), "クリアまでの歩数-%d", player.onaCount - 7);
+		}
+	}
+	if ( scene == 6 ) {
+		
+		if ( 5 - player.onaCount >= 0 ) {
+			DrawFormatString (20, 480, GetColor (255, 255, 255), "クリアまでの歩数%d", 5 - player.onaCount);
+		}
+		else {
+			DrawFormatString (20, 480, GetColor (255, 30, 30), "クリアまでの歩数-%d", player.onaCount - 5);
 		}
 	}
 
