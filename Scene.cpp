@@ -16,9 +16,10 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 	if (scene == 0) {
 		MAP.SelectMap(scene, map);
 		MAP.MapKeep(map);
+		easing.selectScene = 0;
 		if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
-			scene = 1;
-			changeSc.titleFaze +=1;
+			scene = 9;
+			changeSc.titleFaze += 1;
 		}
 	}
 	else if (scene == 1) {
@@ -196,6 +197,7 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 	}
 	//ステージ1
 	else if (scene == 5) {
+		easing.selectScene = 0;
 		player.Move(keys, oldkeys, map);
 		key.Inputkey(keys, oldkeys, map, player.playerLeftTopX, player.playerLeftTopY);
 		easing.EasingMove(mpx, mpy);
@@ -260,8 +262,39 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 	}
 	//CLEARシーン
 	else if (scene == 10) {
+		easing.isThx = 1;
 		easing.EasingMove(mpx, mpy);
 		easing.EasingLong(keys, oldkeys);
+		if (easing.selectScene == 1) {
+			scene = 0;
+			changeSc.faze = 0;
+			changeSc.isChangeSc = 0;	//チェンジスクリーンのフラグ
+			changeSc.topP.x = 0;
+			changeSc.topP.y = -300;
+			changeSc.botP.x = 0;
+			changeSc.botP.y = 300;
+			changeSc.leftP.x = -250;
+			changeSc.leftP.y = 0;
+			changeSc.rightP.x = 250;
+			changeSc.rightP.y = 0;
+			changeSc.time = 0;
+			changeSc.time2 = -10;
+			changeSc.maxTime = 20;
+			changeSc.maxtime2 = 30;
+			changeSc.randomX = 0;
+			changeSc.randomY = 0;
+			changeSc.strP.x = 0;
+			changeSc.strP.y = 0;
+			changeSc.waitTime = 0;
+			changeSc.isChangeScene = 0;
+			changeSc.titleFaze = 1;
+		}
+		if (easing.selectScene == 2) {
+			scene = 5;
+		}
+		if (easing.selectScene == 3) {
+
+		}
 	}
 
 	if (player.isPlayerAlive == 0) {

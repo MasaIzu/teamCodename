@@ -13,7 +13,7 @@ Map::Map() {
 	this->trap = LoadGraph("needle1.png");
 	this->floor = LoadGraph("floor.png");
 	LoadDivGraph("Elec_power.png", 4, 4, 1, 64, 64, this->epower);
-	LoadDivGraph("elec.png", 3, 3, 1, 64, 64, this->elec);
+	LoadDivGraph("spark1.png", 3, 3, 1, 64, 64, this->elec);
 	LoadDivGraph("check.png", 6, 6, 1, 64, 64, this->check);
 	mapCount = { 14,6 };
 	isOnly = 0;

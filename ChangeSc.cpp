@@ -204,5 +204,4 @@ void ChangeSc::Draw () {
 						   -this->strP.x + 896 / 2, this->strP.y + 700 / 2, strAnm[0], true);
 		}
 	}
-	DrawFormatString (0, 0, 0xffffff, "%d:%d:%d:%d", faze, time, time2, waitTime);
 }

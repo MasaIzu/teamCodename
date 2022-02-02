@@ -51,17 +51,20 @@ public:
 	double maxTime4 = 106; double maxTime5 = 107; double waitTimer = 50;
 	double nextX; double nextX2; double nextX3;
 	double startX = -150; double finalX = 245;
+	double startY = 800; double finalY = 500;
 
 	int nexTimer = 500;
 
 	int isOnly = 0; int fastTimer; int invsrc = 0;
 
-	double x1, x2, x3, x4, x5, x6; int y1, y2, y3, y4, y5, y6;
+	double x1, x2, x3, x4, x5, x6; double y1, y2, y3, y4, y5, y6;
 	int isSelect = 0;
 	int playerPosX = 500; int playerPosY = 200; int radius = 10;
 	int isHit, isHit2, isHit3, isHit4, isHit5, isHit6;
 
 	int reFlag = 0; int reFlag2 = 0;
+
+	int isThx; int isThxStart; int selectScene;
 
 	//ä÷êîÇÃêßçÏ
 	void EasingMove( int px, int py);

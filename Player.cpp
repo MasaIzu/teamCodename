@@ -24,7 +24,7 @@ Player::Player() {//次のタスク＿マップチップの当たり判定をplayerにする
 	Start = 0; Final = 0; oldFinal = 0; maxTime = 25; time = 0;
 	playerPosOldX = 0; playerPosOldY = 0; isPush = 0;
 	playerLeftTopX = 0; playerLeftTopY = 0; oldPlayerLeftTopX = 0; oldPlayerLeftTopY = 0;
-	keyCount = 0; onaCount = 0; playerCount = 0; trapTimer = 4.5;
+	keyCount = 0; onaCount = 0; playerCount = 0; trapTimer = 4.5; trapCount = 0;
 	playerMapPosX = 0; playerMapPosY = 0; keyTake = 0;
 }
 
@@ -455,9 +455,7 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 			}
 		}
 
-
 	}
-
 
 	if (playerCount == 1) {
 		if (x != playerPosX) {
@@ -563,7 +561,7 @@ void Player::Move(char* keys, char* oldkeys, int map[6][14]) {
 void Player::Draw(int map[6][14]) {
 	DrawGraph(this->playerPosX - r - 16, this->playerPosY - r - 20, this->playerGh, true);
 
-	DrawFormatString(300, 500, GetColor(255, 255, 255), "%d", onaCount);
+	DrawFormatString(300, 500, GetColor(255, 255, 255), "プレイヤーの歩いた歩数:%d", onaCount);
 
 	if (map[playerLeftTopY][playerLeftTopX] == GOAL) {
 		DrawFormatString(300, 500, GetColor(255, 255, 255), "残りの鍵の数:%d", keyCount);
