@@ -7,38 +7,47 @@ class Player
 {
 public:
 
-	//メンバ変数
-	int x;int y;int r;int speed;
+    int playerGh[9];
+    int pAnmCount;
+    float shakeTriCount;//自機揺れの三角関数の中身
+    int isTrans;
 
-	int rightTopX, rightTopY;
-	int rightBottomX, rightBottomY;
-	int leftTopX, leftTopY;
-	int leftBottomX, leftBottomY;
+    //メンバ変数
+    int x; int y; int r; int speed;
 
-	int rightTopOldX, rightTopOldY;
-	int rightBottomOldX, rightBottomOldY;
-	int leftTopOldX, leftTopOldY;
-	int leftBottomOldX, leftBottomOldY;
-	int oldX; int oldY;
+    int rightTopX, rightTopY;
+    int rightBottomX, rightBottomY;
+    int leftTopX, leftTopY;
+    int leftBottomX, leftBottomY;
 
-	int isPlayerStop; int isHitKey;
+    int rightTopOldX, rightTopOldY;
+    int rightBottomOldX, rightBottomOldY;
+    int leftTopOldX, leftTopOldY;
+    int leftBottomOldX, leftBottomOldY;
+    int oldX; int oldY;
 
-	int isGoal; int isPlayerAlive; int isKeyAlive;
+    int isPlayerStop; int isHitKey;
 
-	int Start, Final, oldFinal; double time, maxTime;
+    int isGoal; int isPlayerAlive; int isKeyAlive;
 
-	int playerPosX, playerPosY, playerPosOldX, playerPosOldY; int isPush;
-	int playerLeftTopX, playerLeftTopY, oldPlayerLeftTopX, oldPlayerLeftTopY;
-	
-	int keyCount; int onaCount; int playerCount; int trapCount; float trapTimer;
+    int Start, Final, oldFinal; double time, maxTime;
+
+    int playerPosX, playerPosY, playerPosOldX, playerPosOldY; int isPush;
+    int playerLeftTopX, playerLeftTopY, oldPlayerLeftTopX, oldPlayerLeftTopY;
+
+    int keyCount; int onaCount; int playerCount; int trapCount; float trapTimer;
+
+    int playerMapPosX, playerMapPosY;
+
+    int keyTake;
 private:
-	Easing* easing;
-	Map MAP;
+    Easing* easing;
+    Map MAP;
 public:
-	//関数制作
-	void Move(char* keys, char* oldkeys, int map[6][14]);
-	void Draw();
+    //関数制作
+    void Move (char* keys, char* oldkeys, int map[6][14]);
+    void Draw (int map[6][14]);
 
-	Player();
+    Player ();
 
 };

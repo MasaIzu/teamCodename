@@ -15,108 +15,192 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 			mapX = 1;
 			mapY = 1;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = '1';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '1';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_2] == true && oldkeys[KEY_INPUT_2] == false) {
 			mapX = 2;
 			mapY = 1;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = '2';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '2';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_3] == true && oldkeys[KEY_INPUT_3] == false) {
 			mapX = 3;
 			mapY = 1;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = '3';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '3';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_4] == true && oldkeys[KEY_INPUT_4] == false) {
 			mapX = 4;
 			mapY = 1;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = '4';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '4';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_5] == true && oldkeys[KEY_INPUT_5] == false) {
 			mapX = 5;
 			mapY = 1;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = '5';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '5';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_6] == true && oldkeys[KEY_INPUT_6] == false) {
 			mapX = 6;
 			mapY = 1;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = '6';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '6';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_7] == true && oldkeys[KEY_INPUT_7] == false) {
 			mapX = 7;
 			mapY = 1;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = '7';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '7';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_8] == true && oldkeys[KEY_INPUT_8] == false) {
 			mapX = 8;
 			mapY = 1;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = '8';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '8';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_9] == true && oldkeys[KEY_INPUT_9] == false) {
 			mapX = 9;
 			mapY = 1;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = '9';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '9';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_0] == true && oldkeys[KEY_INPUT_0] == false) {
 			mapX = 10;
 			mapY = 1;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = '0';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '0';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_MINUS] == true && oldkeys[KEY_INPUT_MINUS] == false) {
 			mapX = 11;
 			mapY = 1;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = '-';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '-';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_PREVTRACK] == true && oldkeys[KEY_INPUT_PREVTRACK] == false) {
 			mapX = 12;
 			mapY = 1;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = '^';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '^';
+						break;
+					}
+				}
 			}
 		}
 
@@ -124,108 +208,192 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 			mapX = 1;
 			mapY = 2;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'q';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'q';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_W] == true && oldkeys[KEY_INPUT_W] == false) {
 			mapX = 2;
 			mapY = 2;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'w';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'w';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_E] == true && oldkeys[KEY_INPUT_E] == false) {
 			mapX = 3;
 			mapY = 2;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'e';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'e';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_R] == true && oldkeys[KEY_INPUT_R] == false) {
 			mapX = 4;
 			mapY = 2;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'r';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'r';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_T] == true && oldkeys[KEY_INPUT_T] == false) {
 			mapX = 5;
 			mapY = 2;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 't';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 't';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_Y] == true && oldkeys[KEY_INPUT_Y] == false) {
 			mapX = 6;
 			mapY = 2;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'y';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'y';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_U] == true && oldkeys[KEY_INPUT_U] == false) {
 			mapX = 7;
 			mapY = 2;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'u';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'u';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_I] == true && oldkeys[KEY_INPUT_I] == false) {
 			mapX = 8;
 			mapY = 2;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'i';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'i';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_O] == true && oldkeys[KEY_INPUT_O] == false) {
 			mapX = 9;
 			mapY = 2;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'o';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'o';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_P] == true && oldkeys[KEY_INPUT_P] == false) {
 			mapX = 10;
 			mapY = 2;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'p';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'p';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_AT] == true && oldkeys[KEY_INPUT_AT] == false) {
 			mapX = 11;
 			mapY = 2;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = '@';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '@';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_LBRACKET] == true && oldkeys[KEY_INPUT_LBRACKET] == false) {
 			mapX = 12;
 			mapY = 2;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = '[';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '[';
+						break;
+					}
+				}
 			}
 		}
 
@@ -233,108 +401,192 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 			mapX = 1;
 			mapY = 3;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'a';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'a';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_S] == true && oldkeys[KEY_INPUT_S] == false) {
 			mapX = 2;
 			mapY = 3;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 's';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 's';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_D] == true && oldkeys[KEY_INPUT_D] == false) {
 			mapX = 3;
 			mapY = 3;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'd';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'd';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_F] == true && oldkeys[KEY_INPUT_F] == false) {
 			mapX = 4;
 			mapY = 3;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'f';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'f';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_G] == true && oldkeys[KEY_INPUT_G] == false) {
 			mapX = 5;
 			mapY = 3;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'g';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'g';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_H] == true && oldkeys[KEY_INPUT_H] == false) {
 			mapX = 6;
 			mapY = 3;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'h';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'h';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_J] == true && oldkeys[KEY_INPUT_J] == false) {
 			mapX = 7;
 			mapY = 3;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'j';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'j';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_K] == true && oldkeys[KEY_INPUT_K] == false) {
 			mapX = 8;
 			mapY = 3;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'k';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'k';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_L] == true && oldkeys[KEY_INPUT_L] == false) {
 			mapX = 9;
 			mapY = 3;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'l';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'l';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_SEMICOLON] == true && oldkeys[KEY_INPUT_SEMICOLON] == false) {
 			mapX = 10;
 			mapY = 3;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = ';';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = ';';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_COLON] == true && oldkeys[KEY_INPUT_COLON] == false) {
 			mapX = 11;
 			mapY = 3;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = ':';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = ':';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_RBRACKET] == true && oldkeys[KEY_INPUT_RBRACKET] == false) {
 			mapX = 12;
 			mapY = 3;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = ']';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = ']';
+						break;
+					}
+				}
 			}
 		}
 
@@ -342,115 +594,200 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 			mapX = 1;
 			mapY = 4;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'z';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'z';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_X] == true && oldkeys[KEY_INPUT_X] == false) {
 			mapX = 2;
 			mapY = 4;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'x';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'x';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_C] == true && oldkeys[KEY_INPUT_C] == false) {
 			mapX = 3;
 			mapY = 4;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'c';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'c';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_V] == true && oldkeys[KEY_INPUT_V] == false) {
 			mapX = 4;
 			mapY = 4;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'v';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'v';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_B] == true && oldkeys[KEY_INPUT_B] == false) {
 			mapX = 5;
 			mapY = 4;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'b';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'b';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_N] == true && oldkeys[KEY_INPUT_N] == false) {
 			mapX = 6;
 			mapY = 4;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'n';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'n';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_M] == true && oldkeys[KEY_INPUT_M] == false) {
 			mapX = 7;
 			mapY = 4;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'm';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'm';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_COMMA] == true && oldkeys[KEY_INPUT_COMMA] == false) {
 			mapX = 8;
 			mapY = 4;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = ',';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = ',';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_PERIOD] == true && oldkeys[KEY_INPUT_PERIOD] == false) {
 			mapX = 9;
 			mapY = 4;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = '.';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '.';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_SLASH] == true && oldkeys[KEY_INPUT_SLASH] == false) {
 			mapX = 10;
 			mapY = 4;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = '/';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '/';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_BACKSLASH] == true && oldkeys[KEY_INPUT_BACKSLASH] == false) {
 			mapX = 11;
 			mapY = 4;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = ' \ ';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = '_';
+						break;
+					}
+				}
 			}
 		}
 		if (keys[KEY_INPUT_RSHIFT] == true && oldkeys[KEY_INPUT_RSHIFT] == false) {
 			mapX = 12;
 			mapY = 4;
 			push = true;
-			if (codeName[i] == 0) {
-				codeName[i] = 'S';
-				codeName[i + 1] = 'H';
-				codeName[i + 2] = 'I';
-				codeName[i + 3] = 'F';
-				codeName[i + 4] = 'T';
-				break;
+			if (mapX == PTX && mapY == PTY) {
+
+			}
+			else {
+				if (map[mapY][mapX] == 0 || map[mapY][mapX] == 2) {
+					if (codeName[i] == 0) {
+						codeName[i] = 'S';
+						codeName[i + 1] = 'H';
+						codeName[i + 2] = 'I';
+						codeName[i + 3] = 'F';
+						codeName[i + 4] = 'T';
+						break;
+					}
+				}
 			}
 		}
 	}
+
 	if (push == true) {
 		if (mapX == PTX && mapY == PTY) {
 			push = false;
@@ -464,12 +801,15 @@ void Key::Inputkey(char* keys, char* oldkeys, int map[][14], int PTX, int PTY) {
 		push = false;
 
 	}
+	DrawFormatString(350, 600, GetColor(255, 255, 255), "%d", mapY);
+	DrawFormatString(350, 650, GetColor(255, 255, 255), "%d", PTY);
 }
 
 void Key::KeyDraw() {
+	SetFontSize(23);
 	for (int i = 0; i < 256; i++) {
 		if (codeName[i] != 0) {
-			DrawFormatString(350 + 10 * i, 100, GetColor(255, 255, 255), "%c", codeName[i]);
+			DrawFormatString(350 + 15 * i, 400, GetColor(255, 255, 255), "%c", codeName[i]);
 		}
 	}
 }
