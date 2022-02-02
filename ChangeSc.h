@@ -16,6 +16,7 @@ public:
 	int maxTime;
 	int maxtime2;
 	int isChangeScene;
+	int titleFaze;
 
 	float randomX;	//シェイクで使います。ごめんなさいごめんなさいごめんなさい
 	float randomY;
