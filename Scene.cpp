@@ -7,6 +7,7 @@ Scene::Scene() {
 	scene = 0;
 	isShiftPush = 0; sceneChange = 0; stageSelect = 0;
 	shiftGh = LoadGraph("taiou.png");
+	goalGh = LoadGraph("thanksGh.png");
 };
 
 void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy) {
@@ -65,6 +66,7 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 				player.x = 550; player.y = 103;
 				player.playerPosX = 550; player.playerPosY = 103;
 				player.isGoal = 0; player.isKeyAlive = 1;
+				player.onaCount = 0; player.time = 0;  player.isPush = 0;
 				for (int i = 0; i < 100; i++) {
 					key.codeName[i] = 0;
 				}
@@ -74,6 +76,7 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 				player.x = 550; player.y = 103;
 				player.playerPosX = 550; player.playerPosY = 103;
 				player.isGoal = 0; player.isKeyAlive = 1;
+				player.onaCount = 0; player.time = 0;  player.isPush = 0;
 				for (int i = 0; i < 100; i++) {
 					key.codeName[i] = 0;
 				}
@@ -83,6 +86,7 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 				player.x = 550; player.y = 103;
 				player.playerPosX = 550; player.playerPosY = 103;
 				player.isGoal = 0; player.isKeyAlive = 1;
+				player.onaCount = 0; player.time = 0;  player.isPush = 0;
 				for (int i = 0; i < 100; i++) {
 					key.codeName[i] = 0;
 				}
@@ -92,6 +96,7 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 				player.x = 550; player.y = 103;
 				player.playerPosX = 550; player.playerPosY = 103;
 				player.isGoal = 0; player.isKeyAlive = 1;
+				player.onaCount = 0; player.time = 0;  player.isPush = 0;
 				for (int i = 0; i < 100; i++) {
 					key.codeName[i] = 0;
 				}
@@ -101,6 +106,7 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 				player.x = 416; player.y = 96;
 				player.playerPosX = 416; player.playerPosY = 96;
 				player.isGoal = 0; player.isKeyAlive = 1;
+				player.onaCount = 0; player.time = 0;  player.isPush = 0;
 				for (int i = 0; i < 100; i++) {
 					key.codeName[i] = 0;
 				}
@@ -110,6 +116,7 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 				player.x = 550; player.y = 103;
 				player.playerPosX = 550; player.playerPosY = 103;
 				player.isGoal = 0; player.isKeyAlive = 1;
+				player.onaCount = 0; player.time = 0;  player.isPush = 0;
 				for (int i = 0; i < 100; i++) {
 					key.codeName[i] = 0;
 				}
@@ -121,63 +128,69 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 	//死んだらここに行き着く
 	else if (scene == 4) {
 		if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
-			if (stageSelect == 0) {
+			if (stageSelect == 0) {//ステージ0(チュートリアル)
 				scene = 2;
 				player.x = 550; player.y = 103;
 				player.playerPosX = 550; player.playerPosY = 103;
 				player.isGoal = 0; player.isKeyAlive = 1;
+				player.onaCount = 0; player.time = 0;  player.isPush = 0;
 				for (int i = 0; i < 100; i++) {
 					key.codeName[i] = 0;
 				}
 			}
-			else if (stageSelect == 1) {
+			else if (stageSelect == 1) {//ステージ1
 				scene = 5;
 				player.x = 550; player.y = 103;
 				player.playerPosX = 550; player.playerPosY = 103;
 				player.isGoal = 0; player.isKeyAlive = 1;
+				player.onaCount = 0; player.time = 0;  player.isPush = 0;
 				for (int i = 0; i < 100; i++) {
 					key.codeName[i] = 0;
 				}
 			}
-			else if (stageSelect == 2) {
+			else if (stageSelect == 2) {//ステージ2
 				scene = 6;
 				player.x = 550; player.y = 103;
 				player.playerPosX = 550; player.playerPosY = 103;
 				player.isGoal = 0; player.isKeyAlive = 1;
+				player.onaCount = 0; player.time = 0;  player.isPush = 0;
 				for (int i = 0; i < 100; i++) {
 					key.codeName[i] = 0;
 				}
 			}
-			else if (stageSelect == 3) {
+			else if (stageSelect == 3) {//ステージ3
 				scene = 7;
 				player.x = 550; player.y = 103;
 				player.playerPosX = 550; player.playerPosY = 103;
 				player.isGoal = 0; player.isKeyAlive = 1;
+				player.onaCount = 0; player.time = 0;  player.isPush = 0;
 				for (int i = 0; i < 100; i++) {
 					key.codeName[i] = 0;
 				}
 			}
-			else if (stageSelect == 4) {
+			else if (stageSelect == 4) {//ステージ4
 				scene = 8;
 				player.x = 550; player.y = 103;
 				player.playerPosX = 550; player.playerPosY = 103;
 				player.isGoal = 0; player.isKeyAlive = 1;
+				player.onaCount = 0; player.time = 0;  player.isPush = 0;
 				for (int i = 0; i < 100; i++) {
 					key.codeName[i] = 0;
 				}
 			}
-			else if (stageSelect == 5) {
+			else if (stageSelect == 5) {//ステージ5
 				scene = 9;
 				player.x = 416; player.y = 96;
 				player.playerPosX = 416; player.playerPosY = 96;
 				player.isGoal = 0; player.isKeyAlive = 1;
+				player.onaCount = 0; player.time = 0;  player.isPush = 0;
 				for (int i = 0; i < 100; i++) {
 					key.codeName[i] = 0;
 				}
 			}
 			MAP.SelectMap(scene, map);
 			MAP.MapKeep(map);
-			
+
 		}
 	}
 	//ステージ1
@@ -244,6 +257,11 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 		}
 		stageSelect = 5;
 	}
+	//CLEARシーン
+	else if (scene == 10) {
+		easing.EasingMove(mpx, mpy);
+		easing.EasingLong(keys, oldkeys);
+	}
 
 	if (player.isPlayerAlive == 0) {
 		scene = 4;
@@ -274,8 +292,6 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 
 void Scene::PushDraw(int map[][14]) {
 	// 描画処理
-
-
 
 	if (scene == 0) {
 		DrawFormatString(350, 200, GetColor(255, 255, 255), "スタート_スペース");
@@ -355,7 +371,12 @@ void Scene::PushDraw(int map[][14]) {
 		easing.EasingDraw();
 		player.Draw(map);
 	}
-	
+	//goal
+	else if (scene == 10) {
+		DrawGraph(0, 0, goalGh, true);
+		easing.EasingDraw();
+	}
+
 	changeSc.Draw();
 }
 

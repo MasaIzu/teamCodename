@@ -21,7 +21,7 @@ Player::Player() {//次のタスク＿マップチップの当たり判定をplayerにする
 	oldX = 0; oldY = 0;
 	this->isPlayerStop = 0;
 	isHitKey = 0; isGoal = 0; isPlayerAlive = 1; isKeyAlive = 1;
-	Start = 0; Final = 0; oldFinal = 0; maxTime = 20; time = 0;
+	Start = 0; Final = 0; oldFinal = 0; maxTime = 25; time = 0;
 	playerPosOldX = 0; playerPosOldY = 0; isPush = 0;
 	playerLeftTopX = 0; playerLeftTopY = 0; oldPlayerLeftTopX = 0; oldPlayerLeftTopY = 0;
 	keyCount = 0; onaCount = 0; playerCount = 0; trapTimer = 4.5;

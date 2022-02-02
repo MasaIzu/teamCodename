@@ -14,7 +14,7 @@ private:
 	int shiftGh;
 	int sceneChange;
 	int stageSelect;
-
+	int goalGh;
 public:
 	Player player;
 	Map MAP;
