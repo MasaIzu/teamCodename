@@ -17,6 +17,7 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 		MAP.MapKeep(map);
 		if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
 			scene = 1;
+			changeSc.titleFaze +=1;
 		}
 	}
 	else if (scene == 1) {
