@@ -16,6 +16,7 @@ Player::Player () {//次のタスク＿マップチップの当たり判定をplayerにする
 	LoadDivGraph ("myCharaAnm.png",
 				  9, 9, 1, 64, 64,
 				  playerGh);
+	idou = LoadSoundMem("高速移動.mp3");
 
 	//警告が鬱陶しいので対象変数全部初期化
 	rightTopX = 0; rightTopY = 0; rightBottomX = 0; rightBottomY = 0;
@@ -30,7 +31,7 @@ Player::Player () {//次のタスク＿マップチップの当たり判定をplayerにする
 	playerLeftTopX = 0; playerLeftTopY = 0; oldPlayerLeftTopX = 0; oldPlayerLeftTopY = 0;
 	keyCount = 0; onaCount = 0; playerCount = 0; trapTimer = 4.5;
 	playerMapPosX = 0; playerMapPosY = 0; keyTake = 0; pAnmCount = 0;
-	shakeTriCount = 0.0f; isTrans = 0;
+	shakeTriCount = 0.0f; isTrans = 0; isIdou = 0;
 }
 
 
@@ -632,20 +633,24 @@ void Player::Move (char* keys, char* oldkeys, int map[6][14]) {
 		if ( time < maxTime ) {
 			time++;
 			playerPosY = Start + (y - Start) * easing->easeOutQuart (time / maxTime);
+			
 		}
 		else {
 			time = 0;
 			isPush = 0;
+			
 		}
 	}
 	else if ( isPush == 2 ) {
 		if ( time < maxTime ) {
 			time++;
 			playerPosX = Start + (x - Start) * easing->easeOutQuart (time / maxTime);
+			
 		}
 		else {
 			time = 0;
 			isPush = 0;
+			
 		}
 	}
 }

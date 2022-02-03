@@ -7,10 +7,11 @@ Map::Map() {
 
 	this->block = LoadGraph("block1.png");
 	this->block2 = LoadGraph("NONE.png");
-	this->goal = LoadGraph("goal.png");
-	this->needle = LoadGraph("toge_kari.png");
-	this->kagi = LoadGraph("keykari.png");
-	this->trap = LoadGraph("needle1.png");
+	this->goal = LoadGraph("doora.png");
+	this->needle = LoadGraph("needle1.png");
+	this->kagi = LoadGraph("key_floor.png");
+	this->trap = LoadGraph("deko.png");
+	this->trapDown = LoadGraph("boko.png");
 	this->floor = LoadGraph("floor.png");
 	LoadDivGraph("Elec_power.png", 4, 4, 1, 64, 64, this->epower);
 	LoadDivGraph("spark1.png", 3, 3, 1, 64, 64, this->elec);
@@ -97,11 +98,11 @@ void Map::SelectMap(int scene, int map[6][14]) {
 	else if (scene == 8) {//ステージ4
 		int mapInit[6][14] = {
 		 { 1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
-		 { 1,0,0,0,0,0,4,4,0,0,6,0,0,1 },
-	 	 { 10,0,0,0,0,0,0,0,0,0,0,6,0,1 },
-		 { 1,5,0,0,1,0,0,3,0,0,0,0,6,1 },
-		 { 1,0,1,0,0,0,5,1,4,0,0,0,0,1 },
-		 { 1,1,1,1,4,4,4,1,1,1,1,8,1,1 },
+		 { 1,0,0,0,6,0,0,0,6,0,0,6,4,4 },
+		 { 4,0,0,0,6,0,0,6,0,0,0,6,0,1 },
+		 { 4,0,4,0,6,0,0,0,6,0,4,6,0,4 },
+		 { 4,5,4,0,6,0,0,6,0,0,4,6,3,4 },
+		 { 1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
 		};
 
 		for (int i = 0; i < mapCount.y; i++) {
@@ -229,7 +230,8 @@ void Map::MapDraw(int map[6][14]) {
 				DrawGraph(x * BLOCK_SIZE, y * BLOCK_SIZE, this->trap, true);
 			}
 			else if (map[y][x] == TRAPDOWN) {
-				DrawGraph(x * BLOCK_SIZE, y * BLOCK_SIZE, this->kagi, true);
+				DrawGraph(x * BLOCK_SIZE, y * BLOCK_SIZE, this->block2, true);
+				DrawGraph(x * BLOCK_SIZE, y * BLOCK_SIZE, this->trapDown, true);
 			}
 			else if (map[y][x] == EPOWERU) {
 				DrawGraph(x * BLOCK_SIZE, y * BLOCK_SIZE, this->epower[0], true);

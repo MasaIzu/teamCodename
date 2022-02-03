@@ -11,6 +11,7 @@ public:
 	int needle;
 	int kagi;
 	int trap;
+	int trapDown;
 	int floor;
 	int map[6][14];
 	MapCount mapCount;
