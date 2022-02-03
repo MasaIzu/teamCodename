@@ -640,7 +640,7 @@ void Scene::PushDraw(int map[][14]) {
 		DrawGraph(0, 0, goalGh, true);
 	}
 
-	DrawFormatString(10, 10, 0xffffff, "scene%d", scene);
+	//DrawFormatString(10, 10, 0xffffff, "scene%d", scene);
 	changeSc.Draw();
 }
 
