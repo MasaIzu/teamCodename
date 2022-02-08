@@ -26,6 +26,9 @@ public:
 	void PushMove(char* keys, char* oldkeys, int map[6][14],int mpx,int mpy);
 	void PushDraw(int map[][14]);
 
+	int opBGMHandle1;
+	int gatyan;
+	
 	// constructor & destructor
 	Scene();
 	~Scene();

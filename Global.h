@@ -1,7 +1,7 @@
 #pragma once
 
 // ウィンドウのタイトルに表示する文字列
-const char TITLE[] = "LC1B_22_ニシザワユウガ: タイトルunnnnch";
+const char TITLE[] = "CIPHER";
 
 // ウィンドウ横幅
 const int WIN_WIDTH = 896;

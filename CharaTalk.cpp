@@ -8,11 +8,17 @@ CharaTalk::CharaTalk() {
 	}
 	isOnly = 0; numberOfTimes = 0; goGame = 0;
 	filtaGh = LoadGraph("filta.png");
-	playerGh = LoadGraph("chara1.png");
+	playerGh[6] = {};
+	playerAnmC = 0;
+	waitTimer = 0;
+
+	LoadDivGraph ("denkiChanAnm.png",
+				  6,6,1,64,64,
+				  playerGh);
 }
 
 void CharaTalk::CharContents(char* keys, char* oldkeys) {
-
+	
 	if (numberOfTimes == 0) {
 		if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
 			numberOfTimes = 1;
@@ -69,23 +75,46 @@ void CharaTalk::CharContents(char* keys, char* oldkeys) {
 
 void CharaTalk::CharDraw() {
 	SetFontSize(23);
-	DrawGraph(0, 0, filtaGh, true);
+	//DrawGraph(0, 0, filtaGh, true);
 
 	if (numberOfTimes == 0) {
-		DrawFormatString(150, 200, GetColor(25, 25, 25), "いきなりで悪いが");
-		DrawFormatString(150, 250, GetColor(25, 25, 25), "私のことを導いてはくれないか？");
+		DrawFormatString(150, 600, GetColor(255, 255, 255), "初めまして！私はガイド！よろしくね！");
+		DrawFormatString(150, 642, GetColor (255, 255, 255), "いきなりだけどもチュートリアルを始めるよ！");
 	}
 	if (numberOfTimes == 1) {
-		DrawFormatString(150, 200, GetColor(25, 25, 25), "助かるよ、ちょうど");
-		DrawFormatString(150, 250, GetColor(25, 25, 25), "君みたいな俯瞰して見れる視点が欲しくてね");
+		DrawFormatString(150, 600, GetColor (255, 255, 255), "↑↓←→で移動！　英数キーで【ブロックを配置】できるよ！");
+		DrawFormatString(150, 642, GetColor (255, 255, 255), "それじゃあ実際にやってみよう！");
 	}
 	if (numberOfTimes == 3) {
-		DrawFormatString(150, 200, GetColor(25, 25, 25), "このままだとゴールできない");
-		DrawFormatString(150, 250, GetColor(25, 25, 25), "左シフトを押してくれ、それはキーボードに対応している");
+		DrawFormatString(150, 600, GetColor (255, 255, 255), "このままだとゴールできない,,!ブロックを配置してみよう！");
+		DrawFormatString(150, 642, GetColor (255, 255, 255), "ヒント:左シフトを押すとマップに対応したキーの位置がわかるよ！");
 	}
 	if (numberOfTimes == 4) {
-		DrawFormatString(150, 200, GetColor(25, 25, 25), "その対応してるキーの適当な場所を押すと");
-		DrawFormatString(150, 250, GetColor(25, 25, 25), "ゴールに向かうのに必要な壁を作れるんだ");
+		DrawFormatString(150, 600, GetColor (255, 255, 255), "その対応してるキーの適当な場所を押すと,ゴールに向かうのに");
+		DrawFormatString(150, 642, GetColor (255, 255, 255), "必要な壁を作れるんだ!");
 	}
-	DrawRotaGraph(50, 250, 5.0, 0.0, playerGh, true);
+	
+
+	if ( playerAnmC < 5 ) {
+		if ( waitTimer == 0 ) {
+			playerAnmC++;
+		}
+		else {
+			waitTimer++;
+		}
+	}
+	else {
+		playerAnmC = 0;
+		waitTimer++;
+	}
+
+	if ( waitTimer >= 120 ) {
+		waitTimer = 0;
+	}
+	DrawRotaGraph(80, 650, 2.0, 0.0, playerGh[playerAnmC], true);
+	DrawBox (20, 580, 876, 680, 0xffffff, false);
+	SetFontSize (12);
+	DrawFormatString (826, 655, GetColor (255, 255, 255), "SPACE▼");
+	SetFontSize (23);
+	
 }

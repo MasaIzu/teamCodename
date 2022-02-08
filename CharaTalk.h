@@ -7,7 +7,9 @@ public:
 	int numberOfTimes;
 	int goGame;
 	int filtaGh;
-	int playerGh;
+	int playerGh[6];
+	int playerAnmC;
+	int waitTimer;
 	//“ñ“x‚à‰ñ‚³‚È‚¢‚Æ‚¢‚¤ŒÅ‚¢ˆÓŽu
 	int isOnly;
 	CharaTalk();

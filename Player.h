@@ -39,7 +39,7 @@ public:
 
     int playerMapPosX, playerMapPosY;
 
-    int keyTake;
+    int keyTake; int idou; int isIdou;
 private:
     Easing* easing;
     Map MAP;
