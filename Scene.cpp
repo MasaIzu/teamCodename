@@ -73,138 +73,184 @@ void Scene::PushMove(char* keys, char* oldkeys, int map[6][14], int mpx, int mpy
 	}
 	//ステージたち勝ったなガハハ
 	else if (scene == 3) {
-		if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
+		if ( keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0 ) {
+			sceneChange = 1;
+		}
+
 			if (stageSelect == 0) {//ステージ0(チュートリアル)
-				scene = 5;
-				player.x = 550; player.y = 103;
-				player.playerPosX = 550; player.playerPosY = 103;
-				player.isGoal = 0; player.isKeyAlive = 1;
-				player.onaCount = 0; player.time = 0;  player.isPush = 0;
-				for (int i = 0; i < 100; i++) {
-					key.codeName[i] = 0;
+				
+					
+				
+				if ( changeSc.isChangeScene == 1 ) {
+					changeSc.isChangeScene = 0;
+					scene = 5;
+					player.x = 550; player.y = 103;
+					player.playerPosX = 550; player.playerPosY = 103;
+					player.isGoal = 0; player.isKeyAlive = 1;
+					player.onaCount = 0; player.time = 0;  player.isPush = 0;
+					for ( int i = 0; i < 100; i++ ) {
+						key.codeName[i] = 0;
+					}
+					
 				}
+				
 			}
 			else if (stageSelect == 1) {//ステージ1
-				scene = 6;
-				player.x = 550; player.y = 103;
-				player.playerPosX = 550; player.playerPosY = 103;
-				player.isGoal = 0; player.isKeyAlive = 1;
-				player.onaCount = 0; player.time = 0;  player.isPush = 0;
-				for (int i = 0; i < 100; i++) {
-					key.codeName[i] = 0;
+				if ( changeSc.isChangeScene == 1 ) {
+					changeSc.isChangeScene = 0;
+					scene = 6;
+					player.x = 550; player.y = 103;
+					player.playerPosX = 550; player.playerPosY = 103;
+					player.isGoal = 0; player.isKeyAlive = 1;
+					player.onaCount = 0; player.time = 0;  player.isPush = 0;
+					for ( int i = 0; i < 100; i++ ) {
+						key.codeName[i] = 0;
+					}
 				}
 			}
 			else if (stageSelect == 2) {//ステージ2
-				scene = 7;
-				player.x = 550; player.y = 103;
-				player.playerPosX = 550; player.playerPosY = 103;
-				player.isGoal = 0; player.isKeyAlive = 1;
-				player.onaCount = 0; player.time = 0;  player.isPush = 0;
-				for (int i = 0; i < 100; i++) {
-					key.codeName[i] = 0;
+				if ( changeSc.isChangeScene == 1 ) {
+					changeSc.isChangeScene = 0;
+					scene = 7;
+					player.x = 550; player.y = 103;
+					player.playerPosX = 550; player.playerPosY = 103;
+					player.isGoal = 0; player.isKeyAlive = 1;
+					player.onaCount = 0; player.time = 0;  player.isPush = 0;
+					for ( int i = 0; i < 100; i++ ) {
+						key.codeName[i] = 0;
+					}
 				}
 			}
 			else if (stageSelect == 3) {//ステージ3
-				scene = 8;
-				player.x = 550; player.y = 103;
-				player.playerPosX = 550; player.playerPosY = 103;
-				player.isGoal = 0; player.isKeyAlive = 1;
-				player.onaCount = 0; player.time = 0;  player.isPush = 0;
-				for (int i = 0; i < 100; i++) {
-					key.codeName[i] = 0;
+				if ( changeSc.isChangeScene == 1 ) {
+					changeSc.isChangeScene = 0;
+					scene = 8;
+					player.x = 550; player.y = 103;
+					player.playerPosX = 550; player.playerPosY = 103;
+					player.isGoal = 0; player.isKeyAlive = 1;
+					player.onaCount = 0; player.time = 0;  player.isPush = 0;
+					for ( int i = 0; i < 100; i++ ) {
+						key.codeName[i] = 0;
+					}
 				}
 			}
 			else if (stageSelect == 4) {//ステージ4
-				scene = 9;
-				player.x = 416; player.y = 96;
-				player.playerPosX = 416; player.playerPosY = 96;
-				player.isGoal = 0; player.isKeyAlive = 1;
-				player.onaCount = 0; player.time = 0;  player.isPush = 0;
-				for (int i = 0; i < 100; i++) {
-					key.codeName[i] = 0;
+				if ( changeSc.isChangeScene == 1 ) {
+					changeSc.isChangeScene = 0;
+					scene = 9;
+					player.x = 416; player.y = 96;
+					player.playerPosX = 416; player.playerPosY = 96;
+					player.isGoal = 0; player.isKeyAlive = 1;
+					player.onaCount = 0; player.time = 0;  player.isPush = 0;
+					for ( int i = 0; i < 100; i++ ) {
+						key.codeName[i] = 0;
+					}
 				}
 			}
 			else if (stageSelect == 5) {//ステージ5
-				scene = 10;
-				player.x = 550; player.y = 103;
-				player.playerPosX = 550; player.playerPosY = 103;
-				player.isGoal = 0; player.isKeyAlive = 1;
-				player.onaCount = 0; player.time = 0;  player.isPush = 0;
-				for (int i = 0; i < 100; i++) {
-					key.codeName[i] = 0;
+				if ( changeSc.isChangeScene == 1 ) {
+					changeSc.isChangeScene = 0;
+					scene = 10;
+					player.x = 550; player.y = 103;
+					player.playerPosX = 550; player.playerPosY = 103;
+					player.isGoal = 0; player.isKeyAlive = 1;
+					player.onaCount = 0; player.time = 0;  player.isPush = 0;
+					for ( int i = 0; i < 100; i++ ) {
+						key.codeName[i] = 0;
+					}
 				}
 			}
 			MAP.SelectMap(scene, map);
 			MAP.MapKeep(map);
-		}
+		
 	}
 	//死んだらここに行き着く
 	else if (scene == 4) {
-		if (keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0) {
+		if ( keys[KEY_INPUT_SPACE] == 1 && oldkeys[KEY_INPUT_SPACE] == 0 ) {
+			sceneChange = 1;
+		}
 			if (stageSelect == 0) {//ステージ0(チュートリアル)
-				scene = 2;
-				player.x = 550; player.y = 103;
-				player.playerPosX = 550; player.playerPosY = 103;
-				player.isGoal = 0; player.isKeyAlive = 1;
-				player.onaCount = 0; player.time = 0;  player.isPush = 0;
-				for (int i = 0; i < 100; i++) {
-					key.codeName[i] = 0;
+				if ( changeSc.isChangeScene == 1 ) {
+					changeSc.isChangeScene = 0;
+					scene = 2;
+					player.x = 550; player.y = 103;
+					player.playerPosX = 550; player.playerPosY = 103;
+					player.isGoal = 0; player.isKeyAlive = 1;
+					player.onaCount = 0; player.time = 0;  player.isPush = 0;
+					for ( int i = 0; i < 100; i++ ) {
+						key.codeName[i] = 0;
+					}
 				}
 			}
 			else if (stageSelect == 1) {//ステージ1
-				scene = 5;
-				player.x = 550; player.y = 103;
-				player.playerPosX = 550; player.playerPosY = 103;
-				player.isGoal = 0; player.isKeyAlive = 1;
-				player.onaCount = 0; player.time = 0;  player.isPush = 0;
-				for (int i = 0; i < 100; i++) {
-					key.codeName[i] = 0;
+				if ( changeSc.isChangeScene == 1 ) {
+					changeSc.isChangeScene = 0;
+					scene = 5;
+					player.x = 550; player.y = 103;
+					player.playerPosX = 550; player.playerPosY = 103;
+					player.isGoal = 0; player.isKeyAlive = 1;
+					player.onaCount = 0; player.time = 0;  player.isPush = 0;
+					for ( int i = 0; i < 100; i++ ) {
+						key.codeName[i] = 0;
+					}
 				}
 			}
 			else if (stageSelect == 2) {//ステージ2
-				scene = 6;
-				player.x = 550; player.y = 103;
-				player.playerPosX = 550; player.playerPosY = 103;
-				player.isGoal = 0; player.isKeyAlive = 1;
-				player.onaCount = 0; player.time = 0;  player.isPush = 0;
-				for (int i = 0; i < 100; i++) {
-					key.codeName[i] = 0;
+				if ( changeSc.isChangeScene == 1 ) {
+					changeSc.isChangeScene = 0;
+					scene = 6;
+					player.x = 550; player.y = 103;
+					player.playerPosX = 550; player.playerPosY = 103;
+					player.isGoal = 0; player.isKeyAlive = 1;
+					player.onaCount = 0; player.time = 0;  player.isPush = 0;
+					for ( int i = 0; i < 100; i++ ) {
+						key.codeName[i] = 0;
+					}
 				}
 			}
 			else if (stageSelect == 3) {//ステージ3
-				scene = 7;
-				player.x = 550; player.y = 103;
-				player.playerPosX = 550; player.playerPosY = 103;
-				player.isGoal = 0; player.isKeyAlive = 1;
-				player.onaCount = 0; player.time = 0;  player.isPush = 0;
-				for (int i = 0; i < 100; i++) {
-					key.codeName[i] = 0;
+				if ( changeSc.isChangeScene == 1 ) {
+					changeSc.isChangeScene = 0;
+					scene = 7;
+					player.x = 550; player.y = 103;
+					player.playerPosX = 550; player.playerPosY = 103;
+					player.isGoal = 0; player.isKeyAlive = 1;
+					player.onaCount = 0; player.time = 0;  player.isPush = 0;
+					for ( int i = 0; i < 100; i++ ) {
+						key.codeName[i] = 0;
+					}
 				}
 			}
 			else if (stageSelect == 4) {//ステージ4
-				scene = 8;
-				player.x = 550; player.y = 103;
-				player.playerPosX = 550; player.playerPosY = 103;
-				player.isGoal = 0; player.isKeyAlive = 1;
-				player.onaCount = 0; player.time = 0;  player.isPush = 0;
-				for (int i = 0; i < 100; i++) {
-					key.codeName[i] = 0;
+				if ( changeSc.isChangeScene == 1 ) {
+					changeSc.isChangeScene = 0;
+					scene = 8;
+					player.x = 550; player.y = 103;
+					player.playerPosX = 550; player.playerPosY = 103;
+					player.isGoal = 0; player.isKeyAlive = 1;
+					player.onaCount = 0; player.time = 0;  player.isPush = 0;
+					for ( int i = 0; i < 100; i++ ) {
+						key.codeName[i] = 0;
+					}
 				}
 			}
 			else if (stageSelect == 5) {//ステージ5
-				scene = 9;
-				player.x = 416; player.y = 96;
-				player.playerPosX = 416; player.playerPosY = 96;
-				player.isGoal = 0; player.isKeyAlive = 1;
-				player.onaCount = 0; player.time = 0;  player.isPush = 0;
-				for (int i = 0; i < 100; i++) {
-					key.codeName[i] = 0;
+				if ( changeSc.isChangeScene == 1 ) {
+					changeSc.isChangeScene = 0;
+					scene = 9;
+					player.x = 416; player.y = 96;
+					player.playerPosX = 416; player.playerPosY = 96;
+					player.isGoal = 0; player.isKeyAlive = 1;
+					player.onaCount = 0; player.time = 0;  player.isPush = 0;
+					for ( int i = 0; i < 100; i++ ) {
+						key.codeName[i] = 0;
+					}
 				}
 			}
 			MAP.SelectMap(scene, map);
 			MAP.MapKeep(map);
 
-		}
+		
 	}
 
 
